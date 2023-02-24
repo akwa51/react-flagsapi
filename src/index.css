@@ -1,13 +1,106 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+img {
+    max-width: 100%;
+    border-radius: 5px 5px 0 0;
+}
+
+body {
+    font-family: 'Nunito Sans',sans-serif;
+    background-color: #f2f2f2;
+}
+
+
+/* Font Sizes and display */
+
+/* Header Component */
+.head_section{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:30px 16px;
+    background: #ffff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+}
+
+.head_section h1{
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 800;
+}
+
+.head_section .theme_class{
+    font-size: 12px;
+    line-height: 16.37px;
+    font-weight: 600;
+}
+
+/* End Header Section */
+
+/* Countries Component */
+.cflag{
+    width: 420px;
+    height: 200px;  
+    border-bottom: 1px transparent black;
+}  
+
+.grid{
+    display: grid;
+    grid-template-columns:1fr;
+    gap: 40px ;
+
+    position:absolute;
+    margin:0 auto;
+    padding:40px 55px 65px;
+}
+
+.grid .countryInfo{
+    padding:24px 24px 46px;
+
+    margin-top:-10px;
+    width: 100%;
+    border-radius: 0 0 5px 5px; 
+    background-color: #ffff;
+    
+}
+
+.grid .boxChar{
+    box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.0294384);
+}
+.grid .countryInfo h3{
+    padding-bottom:16px;
+}
+
+
+.grid .countryInfo h4 span{
+    font-weight: 300;
+}
+
+
+
+
+
+/* media queries*/
+@media (min-width:640px){
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+    } 
+}
+
+@media (min-width:768px){
+    .grid{
+        grid-template-columns:repeat(3,1fr);
+    } 
+}
+
+@media (min-width:992px){
+    .grid{
+        grid-template-columns:repeat(4,1fr);
+    } 
 }

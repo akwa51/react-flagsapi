@@ -1,14 +1,25 @@
 import {useState , useEffect} from 'react'
 
-const url='https://restcountries.com/v3.1/all'
+const url='https://restcountries.com/v2/all'
+
+type countryType={
+    name:string,
+    flags:{
+        png:string
+    },
+    population:number,
+    region:string,
+    capital:string,
+    numericCode:number
+}
 
 const Countries = () => {
-    const [countries, setCountries]=useState([]);
+    const [countries, setCountries]=useState<countryType[]>([]);
 
     useEffect (()=>{
         const fetchCountry=async()=>{
             const response=await fetch(url);
-            const mcountries=await response.json();
+            const mcountries =await response.json();
             setCountries(mcountries);
         }
 
@@ -21,11 +32,11 @@ const Countries = () => {
         <section className='grid scInfo'>
             {countries.map((country,index)=>{
 
-                const name=country.name.common;
+                const name=country.name;
                 const flag=country.flags.png;
-                const {population,region,capital}=country;
+                const {numericCode,population,region,capital}=country;
                 
-                let keyd=String(country.idd.root||0).slice(1)+String(country.idd.suffixes||0).slice(0,3);
+                let keyd=numericCode;
                 
                     return(
                         <article key={keyd+index} className='scInfo boxChar'>
