@@ -23,7 +23,7 @@ const Countries = () => {
             setCountries(mcountries);
         }
 
-        fetchCountry();
+        fetchCountry()
     },[]);
 
 
