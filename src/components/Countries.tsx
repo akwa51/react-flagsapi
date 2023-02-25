@@ -43,9 +43,9 @@ const Countries = () => {
                         <img className='cflag' src={flag.toString()} alt={name.toString()}/>
                             <div className='countryInfo'>
                                 <h3 >{name}</h3>
-                                <h4 className='scInfo'>Population: <span>{population}</span></h4>
+                                <h4 className='scInfo'>Population: <span>{population.toLocaleString('en-US')}</span></h4>
                                 <h4 className='scInfo'>Region: <span>{region}</span> </h4>
-                                <h4 className='scInfo'>Capital:<span>{capital}</span></h4>
+                                <h4 className='scInfo'>Capital: <span>{capital}</span></h4>
                             </div>
                         </article>
                     )
