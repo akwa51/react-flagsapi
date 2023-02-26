@@ -45,8 +45,9 @@ body {
 
 /* Countries Component */
 .cflag{
-    width: 420px;
-    height: 200px;  
+    /* width: 420px; */
+    width:100%;
+    height: 250px;  
     border-bottom: 1px transparent black;
 }  
 
@@ -54,17 +55,19 @@ body {
     display: grid;
     grid-template-columns:1fr;
     gap: 40px ;
+    padding:30px 45px;
 
     position:absolute;
     margin:0 auto;
-    padding:40px 55px 65px;
+    /* padding:40px 35px 45px; */
 }
 
 .grid .countryInfo{
-    padding:24px 24px 46px;
+    padding:30px 24px 46px;
 
     margin-top:-10px;
     width: 100%;
+    /* width:420px; */
     border-radius: 0 0 5px 5px; 
     background-color: #ffff;
     
@@ -75,28 +78,88 @@ body {
 }
 .grid .countryInfo h3{
     padding-bottom:16px;
+    font-size:18px;
+    font-weight: 800;
 }
 
+.grid .countryInfo h4 {
+    font-weight: 600;
+    font-size:14px;
+    line-height: 30px;
+}
 
 .grid .countryInfo h4 span{
     font-weight: 300;
+    font-size:14px;
+    line-height: 30px;
 }
 
 /* media queries*/
 @media (min-width:640px){
     .grid{
         grid-template-columns:repeat(2,1fr);
+        padding:30px;
     } 
+
+    .head_section{
+        padding:30px;
+    }
+
+    .head_section h1{
+        font-size: 24px;
+        line-height: 32.7px;
+        font-weight: 800;
+    }
+
+    .head_section .theme_class{
+        font-size: 16px;
+        line-height: 21.82px;
+        font-weight: 600;
+    }
 }
 
 @media (min-width:768px){
+    .head_section{
+        padding:30px;
+    }
+
+    .head_section h1{
+        font-size: 24px;
+        line-height: 32.7px;
+        font-weight: 800;
+    }
+
+    .head_section .theme_class{
+        font-size: 16px;
+        line-height: 21.82px;
+        font-weight: 600;
+    }
+
     .grid{
         grid-template-columns:repeat(3,1fr);
+        padding:30px;
     } 
 }
 
 @media (min-width:992px){
+    .head_section{
+        padding:30px;
+    }
+
+    .head_section h1{
+        font-size: 24px;
+        line-height: 32.7px;
+        font-weight: 800;
+    }
+
+    .head_section .theme_class{
+        font-size: 16px;
+        line-height: 21.82px;
+        font-weight: 600;
+    }
+
     .grid{
         grid-template-columns:repeat(4,1fr);
+        padding:30px;
     } 
 }
