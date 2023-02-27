@@ -54,7 +54,7 @@ body {
 /* Search Component */
 
 .searchbar{
-     display: flex;
+   display: flex;
    flex-direction: column;
 }
 
@@ -186,6 +186,8 @@ body {
 @media (min-width:768px){
     .head_section{
         padding:30px;
+        align-items: center;
+        justify-content: space-between;
     }
 
     .head_section h1{
@@ -325,3 +327,7 @@ body {
         background-color: #ffff;
     }
 }
+
+
+
+/* Countries Component Styling */
