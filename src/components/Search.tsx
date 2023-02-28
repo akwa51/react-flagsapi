@@ -1,17 +1,24 @@
-import React from 'react'
+// import React from 'react'
 
-const Search = () => {
+type inputTS={
+  value:string,
+  countrySearch:(str:string)=>void
+}
+
+
+const Search = ({countrySearch,value}:inputTS) => {
   return (
     <div>
       <section className='searchbar'>
         <div className='search_filter'>
             <i className='isearch'></i>
-            <input type="search" name="filter" id="input_filter" placeholder="Search for a Country"/>
+            <input type="search" name="filter" id="input_filter" value={value} placeholder="Search for a Country"
+            onChange={(e)=>countrySearch(e.target.value)}/>
         </div>
 
         <div className='region_filter'>
-            <select name='select' id='select' className='select_region'>
-                <option value="Filter by Region">Filter by Region</option>
+            <select name='select' id='select' className='select_region' onChange={e=>countrySearch(e.target.value)}>
+                <option value="Filter by Region" disabled selected>Filter by Region</option>
                 <option value="Africa">Africa</option>
                 <option value="America">America</option>
                 <option value="Asia">Asia</option>
