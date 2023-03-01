@@ -3,19 +3,18 @@
 } */
 
 .country_container{
-  position: absolute;
-   margin:0,auto;
+    position: absolute;
+    margin:0,auto;
+    top:150px;
     left:0;
     right:0;
-
     padding:20px;
-
 }
 
 .bkbutton{
     position:absolute;
-    top:150px;
-    left:40px;
+    top:120px;
+    left:20px;
     /* margin-left:30px; */
     padding:2px 6px;
     text-decoration: none;
@@ -96,7 +95,7 @@ section article .county_specs div h5 span{
         display:grid;
         grid-template-columns: repeat(2,1fr);
         gap:20px;
-        top:30%;
+        top:180px;
     }
 
     .county_specs{
@@ -199,5 +198,12 @@ section article .county_specs div h5 span{
         display: grid;
         grid-template-columns: repeat(2,1fr);
         gap:10px
+    }
+
+
+    .bkbutton{
+        position:absolute;
+        top:150px;
+        left:40px;
     }
 }

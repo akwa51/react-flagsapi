@@ -20,7 +20,7 @@ const Search = ({countrySearch,value}:inputTS) => {
 
         <div className='region_filter'>
             <select name='select' id='select' className='select_region' onChange={e=>countrySearch(e.target.value)}>
-                <option value="Filter by Region" disabled selected>Filter by Region</option>
+                <option value="Filter by Region">Filter by Region</option>
                 <option value="Africa">Africa</option>
                 <option value="America">America</option>
                 <option value="Asia">Asia</option>

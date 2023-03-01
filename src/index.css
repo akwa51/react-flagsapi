@@ -206,7 +206,7 @@ body {
     }
 
     .grid{
-        grid-template-columns:repeat(3,1fr);
+        grid-template-columns:repeat(2,1fr);
         padding:30px;
     } 
 
@@ -280,7 +280,7 @@ body {
     }
 
     .grid{
-        grid-template-columns:repeat(4,1fr);
+        grid-template-columns:repeat(3,1fr);
         padding:10px 30px;
     } 
 
@@ -334,4 +334,73 @@ body {
 
 
 
-/* Countries Component Styling */
+@media (min-width:1280px){
+    .head_section{
+        padding:30px;
+        margin-bottom: 0px;
+    }
+
+    .head_section h1{
+        font-size: 24px;
+        line-height: 32.7px;
+        font-weight: 800;
+    }
+
+    .head_section .theme_class{
+        font-size: 16px;
+        line-height: 21.82px;
+        font-weight: 600;
+    }
+
+    .grid{
+        grid-template-columns:repeat(4,1fr);
+        padding:10px 30px;
+    } 
+
+    /* Search Component */
+
+    .searchbar{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        padding:30px;
+    }
+
+    .searchbar .search_filter{
+        background-color: #ffff;
+        width: 480px;
+        padding:12px;
+        margin:0px;
+        border-radius: 5px;
+    }
+
+    .searchbar .search_filter input{
+        outline:none;
+        border:none; 
+        font-size: 14px;
+        font-family: inherit;
+        letter-spacing: 0.5;
+        width: 250px;
+    
+    }
+
+    .searchbar .region_filter{
+        width:200px;
+        background-color: #ffff; 
+        padding:12px 40px;
+        border-radius:5px;
+        margin:0px;
+    }
+
+    .select_region{
+        border:none;
+        outline:none; 
+        font-size: 14px;
+        font-family: inherit;
+        width:150px;  
+        letter-spacing:0.5;  
+        line-height: 30px;  
+        background-color: #ffff;
+    }
+}
