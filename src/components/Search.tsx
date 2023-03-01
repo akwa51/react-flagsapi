@@ -2,7 +2,9 @@
 
 type inputTS={
   value:string,
-  countrySearch:(str:string)=>void
+  countrySearch:(str:string)=>void,
+  // oregion:string,
+  // regionSearch:(str:string)=>void
 }
 
 

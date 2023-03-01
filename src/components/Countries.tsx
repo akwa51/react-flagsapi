@@ -18,6 +18,9 @@ type countryType={
 const Countries = () => {
     const [countries, setCountries]=useState<countryType[]>([]);
     const [searchText, setSearchText]=useState<string>('');
+    // const [region, setRegion]=useState<string>('Filter by Region');
+    // const filteredCountries:countryType[]=countries;
+
 
     useEffect (()=>{
         const fetchCountry=async()=>{
@@ -30,11 +33,29 @@ const Countries = () => {
     },[]);
 
 
+    // const FilterByRegion=(option:string)=>{
+    //     setRegion(option);
+    
+    //     if(option !== 'Filter by Region'){
+    //         setSearchText('')
+    //        filteredCountries=countries.filter((country)=>country.region.toLowerCase().includes(region.toLowerCase()))
+    //     }
+    //     console.log(filteredCountries)
+    // }
+
+    // const SearchByCountry=(option:string)=>{
+    //     setSearchText(option);
+    //     setRegion('Filter by Region');
+    //     filteredCountries=countries.filter((country)=>country.name.toLowerCase().includes(searchText.toLowerCase()))
+    //     console.log(filteredCountries)
+    // }
    const filterCountries=countries.filter((country)=>country.name.toLowerCase().includes(searchText.toLowerCase())
         ||country.region.toLowerCase().includes(searchText.toLowerCase()))
 
+
   return (
     <>
+        {/* <Search countrySearch={SearchByCountry} value={searchText} oregion={region} regionSearch={FilterByRegion}/> */}
         <Search countrySearch={setSearchText} value={searchText}/>
         <section className='grid scInfo'>
             {filterCountries.map((country)=>{
