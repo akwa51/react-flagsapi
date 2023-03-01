@@ -15,48 +15,63 @@ type countryType={
     numericCode:number
 }
 
+
 const Countries = () => {
     const [countries, setCountries]=useState<countryType[]>([]);
     const [searchText, setSearchText]=useState<string>('');
-    // const [region, setRegion]=useState<string>('Filter by Region');
-    // const filteredCountries:countryType[]=countries;
+    const [isLoading,setIsLoading]=useState<boolean>(true);
+    const [error,setError]=useState('');
+    const [region, setRegion]=useState<string>('Filter by Region');
+
 
 
     useEffect (()=>{
         const fetchCountry=async()=>{
-            const response=await fetch(url);
-            const mcountries =await response.json();
-            setCountries(mcountries);
+            try {
+                const response=await fetch(url);
+                if(!response.ok) throw new Error('Error!!...Connection Not Established!')
+                const mcountries =await response.json();
+                setCountries(mcountries);
+                setIsLoading(false);
+                
+            } catch (error:any) {
+                setIsLoading(false)
+                setError(error.message)
+            } 
         }
 
         fetchCountry()
     },[]);
 
 
-    // const FilterByRegion=(option:string)=>{
-    //     setRegion(option);
+    const FilterByRegion=(option:string)=>{
+        setRegion(option);
     
-    //     if(option !== 'Filter by Region'){
-    //         setSearchText('')
-    //        filteredCountries=countries.filter((country)=>country.region.toLowerCase().includes(region.toLowerCase()))
-    //     }
-    //     console.log(filteredCountries)
-    // }
+        if(option !== 'Filter by Region'){
+            setSearchText('')
+        }
+    }
 
-    // const SearchByCountry=(option:string)=>{
-    //     setSearchText(option);
-    //     setRegion('Filter by Region');
-    //     filteredCountries=countries.filter((country)=>country.name.toLowerCase().includes(searchText.toLowerCase()))
-    //     console.log(filteredCountries)
-    // }
-   const filterCountries=countries.filter((country)=>country.name.toLowerCase().includes(searchText.toLowerCase())
-        ||country.region.toLowerCase().includes(searchText.toLowerCase()))
+    const SearchByCountry=(option:string)=>{
+        setSearchText(option);
+        setRegion('Filter by Region')
+    }
 
+
+   const filterCountries=region==='Filter by Region'?countries.filter((country)=>country.name.toLowerCase().includes(searchText.toLowerCase())):
+   countries.filter((country)=>country.region.toLowerCase().includes(region.toLowerCase()))
+
+//    if(filterCountries.length===0) {setError('No Record Found .....!!! ')}
+    
 
   return (
     <>
-        {/* <Search countrySearch={SearchByCountry} value={searchText} oregion={region} regionSearch={FilterByRegion}/> */}
-        <Search countrySearch={setSearchText} value={searchText}/>
+            
+        <Search countrySearch={SearchByCountry} value={searchText} oregion={region} regionSearch={FilterByRegion}/>
+        
+        {isLoading&&!error&&<p className='LoadingMsg'>Loading......</p>}
+        {error&&!isLoading&&<p className='ErrorMsg'>{error}</p>}
+        {filterCountries.length===0&&!isLoading&&<p className='LogMsg'>{'No Record Found .....!!! '}</p>}
         <section className='grid scInfo'>
             {filterCountries.map((country)=>{
 
@@ -74,12 +89,9 @@ const Countries = () => {
                                 <h4 className='scInfo'>Region: <span>{region}</span> </h4>
                                 <h4 className='scInfo'>Capital: <span>{capital}</span></h4>
                             </div>
-                        </article>
-                            
+                        </article>   
                     )
-
                 })
-
             }
         </section>
       

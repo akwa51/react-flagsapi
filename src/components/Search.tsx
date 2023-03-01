@@ -3,12 +3,12 @@
 type inputTS={
   value:string,
   countrySearch:(str:string)=>void,
-  // oregion:string,
-  // regionSearch:(str:string)=>void
+  oregion:string,
+  regionSearch:(str:string)=>void
 }
 
 
-const Search = ({countrySearch,value}:inputTS) => {
+const Search = ({countrySearch,value,oregion,regionSearch}:inputTS) => {
   return (
     <div>
       <section className='searchbar'>
@@ -19,8 +19,8 @@ const Search = ({countrySearch,value}:inputTS) => {
         </div>
 
         <div className='region_filter'>
-            <select name='select' id='select' className='select_region' onChange={e=>countrySearch(e.target.value)}>
-                <option value="Filter by Region">Filter by Region</option>
+            <select name='select' id='select' className='select_region' value={oregion} onChange={e=>regionSearch(e.target.value)}>
+                <option value="Filter by Region" disabled >Filter by Region</option>
                 <option value="Africa">Africa</option>
                 <option value="America">America</option>
                 <option value="Asia">Asia</option>

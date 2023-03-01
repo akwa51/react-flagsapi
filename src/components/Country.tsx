@@ -23,6 +23,8 @@ type countryDetail={
 
 const Country = () => {
     const [country,setCountry]=useState<countryDetail[]>([]);
+    const [isLoading,setIsLoading]=useState<boolean>(true);
+    const [error,setError]=useState('');
     const {cname}=useParams();
   
     useEffect(()=>{
@@ -30,11 +32,16 @@ const Country = () => {
             try {
                 const result=await fetch(`https://restcountries.com/v2/name/${cname}`);
             
-                if (!result.ok){throw new Error ('record not available')}
+                if (!result.ok){
+                    setError('Connection Error.... Record not available!!')
+                    throw new Error ('Connection Error.... Record not available!!')
+                }
                 const data= await result.json();
                 setCountry(data); 
+                setIsLoading(false);
             }catch (error:any) {
-                    console.log(error.message);
+                setIsLoading(false);
+                setError(error.message);
             }
         } 
             
@@ -45,9 +52,10 @@ const Country = () => {
   return (
         <>
            <Link to='/' className='bkbutton'>&larr; Back</Link> 
-           
+
+           {isLoading&&!error&&<p className='LoadMsg'>Loading......</p>}
+           {error&&!isLoading&&{error}}
            <section>
-                
                 {country.map((item)=>{
                     const fname=item.name;
                     const flag=item.flags.png;

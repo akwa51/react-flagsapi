@@ -1,6 +1,3 @@
-/* *{
-    text-align: center;
-} */
 
 .country_container{
     position: absolute;
@@ -9,6 +6,14 @@
     left:0;
     right:0;
     padding:20px;
+}
+
+.LoadMsg{
+    font-size: 20px;
+    font-family: inherit;
+    font-weight: 700;
+    margin-left:130px;
+    padding-top:40px;
 }
 
 .bkbutton{
@@ -91,6 +96,11 @@ section article .county_specs div h5 span{
 }
 
 @media(min-width:768px){
+    .LoadMsg{
+        position:absolute;
+        left:5px;
+        top:80px;
+    }
     section .country_container{
         display:grid;
         grid-template-columns: repeat(2,1fr);
@@ -143,6 +153,11 @@ section article .county_specs div h5 span{
 }
 
 @media(min-width:992px){
+    .LoadMsg{
+        position:absolute;
+        left:5px;
+        top:80px
+    }
 
     section .country_container{
         display:grid;
@@ -186,6 +201,10 @@ section article .county_specs div h5 span{
 
 
 @media(min-width:1280px){
+    .LoadMsg{
+        margin-left:130px;
+        margin-top:30px;
+    }
 
     section .country_container{
         display:grid;
