@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
 
+
+.light{
+    --header-background:#FFFFFF;
+    --header-main-caption:#111517;
+}
+
+.dark{
+    --header-background:#2B3844;
+    --header-main-caption:#FFFFFF;
+}
+
+
 * {
     margin:0;
     padding:0;
@@ -25,6 +37,28 @@ body {
     padding-top:30px;
 }
 
+.icon5{
+    position:absolute;
+    top:38px;
+    right:115px;
+    background: var(--header-background);
+    color:black;
+    cursor: pointer;
+}
+
+.icon{
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+    font-size: 20px;
+}
+.moon-outline{
+    color:#000;
+}
+
+.moon-fill{
+color: white;
+}
 /* Font Sizes and display */
 
 /* Header Component */
@@ -33,8 +67,8 @@ body {
     justify-content: space-between;
     align-items: center;
     padding:30px 16px;
-    background: #ffff;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+    background: var(--header-background);
+    box-shadow: 0px 2px 4px #0000000e;
     margin-bottom: 0px;
 }
 
@@ -42,12 +76,14 @@ body {
     font-size: 14px;
     line-height: 20px;
     font-weight: 800;
+    color: var(--header-main-caption);
 }
 
 .head_section .theme_class{
     font-size: 12px;
     line-height: 16.37px;
     font-weight: 600;
+    color: var(--header-main-caption);
 }
 
 /* End Header Section */
@@ -74,6 +110,16 @@ body {
     margin:20px auto;
     border-radius: 5px;
     box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
+}
+
+.isearch{
+    opacity: 0.3;
+    position:inherit;
+
+    margin-right: 20px;
+    margin-left: 22px;
+    font-size: 16px;
+    background-color: #ffff;
 }
 
 .searchbar .search_filter input {
@@ -158,8 +204,16 @@ body {
     line-height: 30px;
 }
 
-/* media queries*/
+/* media queries*/.icon5{
+        position:absolute;
+        top:38px;
+        right:115px;
+        background: #ffff;
+        color:black;
+        cursor: pointer;
+    }
 @media (min-width:640px){
+    
     .grid{
         grid-template-columns:repeat(2,1fr);
         padding:30px;
@@ -195,6 +249,15 @@ body {
 }
 
 @media (min-width:768px){
+    .icon5{
+        position:absolute;
+        top:38px;
+        right:115px;
+        background: #ffff;
+        color:black;
+        cursor:pointer;
+    }
+
     .head_section{
         padding:30px;
         align-items: center;
@@ -272,6 +335,14 @@ body {
 }
 
 @media (min-width:992px){
+    .icon5{
+        position:absolute;
+        top:38px;
+        right:115px;
+        background: #ffff;
+        color:black;
+        cursor: pointer;
+    }
     .head_section{
         padding:30px;
         margin-bottom: 0px;
@@ -346,6 +417,16 @@ body {
 
 
 @media (min-width:1280px){
+       .icon5{
+        position:absolute;
+        top:38px;
+        right:115px;
+        background: #ffff;
+        color:black;
+        cursor: pointer;
+    }
+   
+
     .head_section{
         padding:30px;
         margin-bottom: 0px;

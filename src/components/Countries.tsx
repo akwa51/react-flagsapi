@@ -18,8 +18,8 @@ type countryType={
 
 const Countries = () => {
     const [countries, setCountries]=useState<countryType[]>([]);
-    const [searchText, setSearchText]=useState<string>('');
-    const [isLoading,setIsLoading]=useState<boolean>(true);
+    const [searchText, setSearchText]=useState('');
+    const [isLoading,setIsLoading]=useState(true);
     const [error,setError]=useState('');
     const [region, setRegion]=useState<string>('Filter by Region');
 
@@ -47,9 +47,7 @@ const Countries = () => {
     const FilterByRegion=(option:string)=>{
         setRegion(option);
     
-        if(option !== 'Filter by Region'){
-            setSearchText('')
-        }
+        
     }
 
     const SearchByCountry=(option:string)=>{
