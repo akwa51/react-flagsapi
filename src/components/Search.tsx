@@ -1,5 +1,6 @@
 import {HiSearch} from 'react-icons/hi'
 
+
 type inputTS={
   value:string,
   countrySearch:(str:string)=>void,
@@ -9,9 +10,10 @@ type inputTS={
 
 
 const Search = ({countrySearch,value,oregion,regionSearch}:inputTS) => {
+ 
   return (
-    <div>
-      <section className='searchbar'>
+    <div >
+      <section className='searchbar' >
         <div className='search_filter'>
             <HiSearch className='isearch'/>
             <input type="search" name="filter" id="input_filter" value={value} placeholder="Search for a Country ...."

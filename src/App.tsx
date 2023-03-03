@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import Countries from './components/Countries';
 import Header from './components/Header';
 import Country from './components/Country';
@@ -10,7 +10,7 @@ import { initialContext } from './context/Context';
 function App() {
   const {dark} =useContext(initialContext)
   return (
-    <div className={dark? "dark": "light"}>
+    <div className= {dark?"dark":"light"}>
         <Header />
         <Routes >
           <Route  path="/" element={<Countries/>}/>  

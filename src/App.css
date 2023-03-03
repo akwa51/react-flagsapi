@@ -1,14 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
 
-
 .light{
+
     --header-background:#FFFFFF;
     --header-main-caption:#111517;
+    --input-search-text:#848484;
+    --input-search-placeholder:#848484;
+    --input-Search-mobile:#C4C4C4;
+    --input-mobile-placeholder:#C4C4C4;
+    --main-background-color:#F2F2F2;
+    --country-info-color:#FFFFFF;
+    --main-country-detail-text:#111517;
 }
+
 
 .dark{
     --header-background:#2B3844;
     --header-main-caption:#FFFFFF;
+    --input-search-text:#FFFFFF;
+    --input-search-placeholder:#FFFFFF;
+    --input-Mobile-placeholder:#111517;
+    --input-Search-mobile:#111517;
+    --main-background-color:#202C36;
+    --country-info-color:#2B3844;
+    --main-country-detail-text:#FFFFFF;
 }
 
 
@@ -25,7 +40,7 @@ img {
 
 body {
     font-family: 'Nunito Sans',sans-serif;
-    background-color: #f2f2f2;
+    background-color:var(--main-background-color);
 }
 
 
@@ -37,14 +52,6 @@ body {
     padding-top:30px;
 }
 
-.icon5{
-    position:absolute;
-    top:38px;
-    right:115px;
-    background: var(--header-background);
-    color:black;
-    cursor: pointer;
-}
 
 .icon{
     display: inline-block;
@@ -101,25 +108,29 @@ color: white;
 .searchbar{
    display: flex;
    flex-direction: column;
+   background-color: var(--main-background-color);
 }
 
 .searchbar .search_filter{
     width:95%;
-    background-color: #ffff;
+    background-color: var(--header-background);
+    color:var(--input-search-text);
     padding:12px 20px;
     margin:20px auto;
     border-radius: 5px;
+
     box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
 }
 
 .isearch{
-    opacity: 0.3;
-    position:inherit;
-
-    margin-right: 20px;
-    margin-left: 22px;
+    opacity: 0.4;
+    position:absolute;
+    /* margin-right: 20px; */
+    /* margin-left: 22px; */
+    top:119px;
+    left:25px;
     font-size: 16px;
-    background-color: #ffff;
+    background-color: var(--header-background);
 }
 
 .searchbar .search_filter input {
@@ -127,20 +138,22 @@ color: white;
     outline:none;
     letter-spacing: 0.5;
     font-family: inherit;
-    background-color: #ffff;
-    color:#111517;
+    background-color: var(--header-background);
+    /* color:#111517; */
     font-size: 12px;
     font-weight: 400;
+    width:100%;
+    padding:0px 20px;
 }
 
 .searchbar .search_filter input::placeholder{
-    color:#C4C4C4 ;
+    color:var(--input-Search-mobile) ;
 }
 
 .searchbar .region_filter{
     width:180px;
-    background-color: #ffff;
-    padding:12px 20px;
+    background-color:var(--header-background);
+    padding:12px 10px;
     border-radius:5px;
     margin:5px 15px auto;
     box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
@@ -151,8 +164,8 @@ color: white;
     border:none;
     width:150px;
     font-family: inherit;
-    color:#111517;
-    background-color: #ffff;
+    color:var(--header-main-caption);
+    background-color: var(--header-background);
     font-size: 12px;
     line-height: 20px;
     font-weight: 400;
@@ -167,8 +180,9 @@ color: white;
 
     position:absolute;
     margin:0 auto;
-    top:220px;
+    top:218px;
     /* padding:40px 35px 45px; */
+    background-color: var(--main-background-color);
 }
 
 .grid .countryInfo{
@@ -178,7 +192,7 @@ color: white;
     width: 100%;
     /* width:420px; */
     border-radius: 0 0 5px 5px; 
-    background-color: #ffff;
+    background-color: var(--country-info-color);
     
 }
 
@@ -190,29 +204,58 @@ color: white;
     padding-bottom:16px;
     font-size:18px;
     font-weight: 800;
+    color:var(--main-country-detail-text);
 }
 
 .grid .countryInfo h4 {
     font-weight: 600;
     font-size:14px;
     line-height: 30px;
+    color:var(--main-country-detail-text);
 }
 
 .grid .countryInfo h4 span{
     font-weight: 300;
     font-size:14px;
     line-height: 30px;
+    color:var(--main-country-detail-text);
 }
 
-/* media queries*/.icon5{
-        position:absolute;
-        top:38px;
-        right:115px;
-        background: #ffff;
-        color:black;
-        cursor: pointer;
-    }
+.grid .linkText{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* media queries*/
 @media (min-width:640px){
+    .isearch{
+        opacity: 0.4;
+        position:absolute;
+
+        top:136px;
+        left:40px;
+        font-size: 16px;
+        background-color: var(--header-background);
+    }
+
+    .searchbar .search_filter input {
+        border:none;
+        outline:none;
+        letter-spacing: 0.5;
+        font-family: inherit;
+        background-color: var(--header-background);
+        font-size: 12px;
+        font-weight: 400; 
+    }
+
+    .searchbar .search_filter{
+         background: var(--header-background);
+    }
+
+    #input_filter{
+        width:100%;
+        padding:0px 20px;
+    }
     
     .grid{
         grid-template-columns:repeat(2,1fr);
@@ -249,15 +292,7 @@ color: white;
 }
 
 @media (min-width:768px){
-    .icon5{
-        position:absolute;
-        top:38px;
-        right:115px;
-        background: #ffff;
-        color:black;
-        cursor:pointer;
-    }
-
+    
     .head_section{
         padding:30px;
         align-items: center;
@@ -293,7 +328,7 @@ color: white;
     }
 
     .searchbar .search_filter{
-        background-color: #ffff;
+        background-color: var(--header-background);
         width: 480px;
         padding:12px;
         border-radius: 5px;
@@ -306,17 +341,18 @@ color: white;
         font-family: inherit;
         letter-spacing: 0.5;
         width: 250px;
-        background-color: #ffff;
-        color:#111517;
+        font-size: 14px;
+        background-color: var(--header-background);
+        color:var(--input-search-text);
     
     }
     .searchbar .search_filter input::placeholder{
-            color: #848484;
+            color: var(--input-search-placeholder)
     }
 
     .searchbar .region_filter{
         width:200px;
-        background-color: #ffff;
+        background-color:var(--header-background);
         padding:12px 40px;
         border-radius:5px;
         margin:0px;
@@ -330,8 +366,12 @@ color: white;
         width:150px;  
         letter-spacing:0.5;  
         line-height: 30px;  
-        background-color: #ffff;
+        background-color: var(--header-background);
     }
+
+    /* .countryInfo{
+        background-color: var(--country-info-color);
+    } */
 }
 
 @media (min-width:992px){
@@ -410,7 +450,7 @@ color: white;
         width:150px;  
         letter-spacing:0.5;  
         line-height: 30px;  
-        background-color: #ffff;
+        background-color:var(--header-background);
     }
 }
 

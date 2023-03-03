@@ -1,4 +1,10 @@
 
+section{
+    background-color: var(--header-background);   
+}
+
+
+
 .country_container{
     position: absolute;
     margin:0,auto;
@@ -6,6 +12,7 @@
     left:0;
     right:0;
     padding:20px;
+    background-color: var(--header-background);
 }
 
 .LoadMsg{
@@ -26,7 +33,7 @@
     font:bold inherit;
     border:1px solid lightgrey;
     color:#ffff;
-    background-color:#a6a0a0ee
+    background-color:var(--main-background-color)
 }
 
 .country_img{
@@ -96,7 +103,8 @@ section article .county_specs div h5 span{
 }
 
 @media(min-width:768px){
-    .LoadMsg{
+   
+     .LoadMsg{
         position:absolute;
         left:5px;
         top:80px;

@@ -1,6 +1,7 @@
-import {useState , useEffect} from 'react'
+import {useState , useEffect } from 'react'
 import {Link} from 'react-router-dom'
 import Search from '../components/Search'
+
 
 const url='https://restcountries.com/v2/all'
 
@@ -22,6 +23,7 @@ const Countries = () => {
     const [isLoading,setIsLoading]=useState(true);
     const [error,setError]=useState('');
     const [region, setRegion]=useState<string>('Filter by Region');
+    
 
 
 
@@ -59,8 +61,6 @@ const Countries = () => {
    const filterCountries=region==='Filter by Region'?countries.filter((country)=>country.name.toLowerCase().includes(searchText.toLowerCase())):
    countries.filter((country)=>country.region.toLowerCase().includes(region.toLowerCase()))
 
-//    if(filterCountries.length===0) {setError('No Record Found .....!!! ')}
-    
 
   return (
     <>
@@ -70,7 +70,8 @@ const Countries = () => {
         {isLoading&&!error&&<p className='LoadingMsg'>Loading......</p>}
         {error&&!isLoading&&<p className='ErrorMsg'>{error}</p>}
         {filterCountries.length===0&&!isLoading&&<p className='LogMsg'>{'No Record Found .....!!! '}</p>}
-        <section className='grid scInfo'>
+
+        <section className= 'grid scInfo'>
             {filterCountries.map((country)=>{
 
                 const name=country.name;
@@ -82,7 +83,7 @@ const Countries = () => {
                         <article key={numericCode}>
                             <img className='cflag' src={flag.toString()} alt={name.toString()}/>
                             <div className='countryInfo'>
-                                <Link to = {`/${name}`} ><h3 >{name}</h3></Link>
+                                <Link to = {`/${name}`} className='linkText'><h3 >{name}</h3></Link>
                                 <h4 className='scInfo'>Population: <span>{population.toLocaleString('en-US')}</span></h4>
                                 <h4 className='scInfo'>Region: <span>{region}</span> </h4>
                                 <h4 className='scInfo'>Capital: <span>{capital}</span></h4>
