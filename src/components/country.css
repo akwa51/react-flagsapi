@@ -1,7 +1,7 @@
 
 .count_bg{
     width: 100vw;
-    height: 100vh;
+    height: 50vh;
      background-color: var(--main-background-color);  
 }
 
@@ -20,22 +20,35 @@
     font-size: 20px;
     font-family: inherit;
     font-weight: 700;
-    margin-left:130px;
-    padding-top:40px;
+    Position:absolute;
+
+    z-index: 6;
+    left:8px;
+    top:120px;
+    text-align:center;
+    Width:100vw;
+    height:100vh;
+    color:var(--main-country-detail-text);
+    background-color:var(--main-background-color)
 }
 
 .bkbutton{
     position:absolute;
     top:120px;
     left:20px;
-    padding:2px 6px;
+    z-index: 5;
+    padding:8px 0px;
+    height:40px;
+    width: 120px;
     text-decoration: none;
+    text-align: center;
     font:bold inherit;
+    font-weight: 600;
     font-size: 14px;
     box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.293139);
     border-radius: 2px;
     background-color:var(--header-background);
-
+    color: var(--main-country-detail-text);
 }
 
 .country_img{
@@ -45,11 +58,15 @@
 }
 .country_container .country_bloc1{
     margin-top:30px;
+    color:var(--main-country-detail-text);
 }
+
+
 
 .country_dsection1,.country_dsection2,.native_class
 {
     margin-top:30px;
+    color:var(--main-country-detail-text)
 }
 
 .country_name{
@@ -99,12 +116,26 @@ section article .county_specs div h5 span{
 .country_dsection2 .borders ul {
     margin:6px;
     padding: 3px 20px;
-    background-color: #d7d7da;
-    border-radius: 3px;;
+    background-color:var(--header-background);
+    border-radius: 2px;;
+    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.104931);
+    cursor: pointer;
+}
 
+.borderbtn{
+    text-decoration: none;
+    color:var(--main-country-detail-text);
 }
 
 @media(min-width:768px){
+    .bkbutton{
+        position:absolute;
+        z-index: 5;
+        top:180px;
+        left:40px;
+        padding:8px 10px;
+        font-weight: 600;
+    }
    
      .LoadMsg{
         position:absolute;
@@ -114,8 +145,8 @@ section article .county_specs div h5 span{
     section .country_container{
         display:grid;
         grid-template-columns: repeat(2,1fr);
-        gap:20px;
-        top:150px;
+        gap:10px;
+        top:280px;
     }
 
     .county_specs{
@@ -163,12 +194,21 @@ section article .county_specs div h5 span{
     .count_bg{
       
         width: 100vw;
-        height: 90vh;
+        height: 100vh;
          background-color: var(--main-background-color);  
     }
 }
 
 @media(min-width:992px){
+    .bkbutton{
+        position:absolute;
+        z-index: 5;
+        top:120px;
+        left:40px;
+        padding:8px 10px;
+        font-weight: 600;
+    }
+
     .LoadMsg{
         position:absolute;
         left:5px;
@@ -252,6 +292,9 @@ section article .county_specs div h5 span{
         position:absolute;
         top:150px;
         left:40px;
+        z-index: 5;
+        padding:8px 10px;
+        font-weight: 600;
     }
 
     .count_bg{

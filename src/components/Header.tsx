@@ -1,16 +1,45 @@
-import React, { useContext } from 'react'
+import {useEffect,useContext,useState } from 'react'
 import {IoMoonOutline} from 'react-icons/io5'
 import {IoMdMoon} from 'react-icons/io'
 import { initialContext } from '../context/Context'
 
 
-
 const Header = () => {
 
-  const {dark,setDark} = useContext(initialContext)
+  const {dark,setDark} = useContext(initialContext);
+  const [error,setError]=useState('');
+  
+  useEffect(() => {
+    try {
+      const localVar=localStorage.getItem('Mode');
+
+      if (localVar){
+        setDark(JSON.parse(localVar));
+      }
+    } catch (err:any) {
+      console.log(err);
+      setError('Error Saving To Local Storage!')
+    }
+    
+  }, [setDark])
+
+  error&&console.log(error);
+
+  useEffect (()=>{
+    try {
+       localStorage.setItem('Mode', JSON.stringify(dark));
+    } catch (err:any) {
+      console.log(err);
+      setError('Error Saving To Local Storage!')
+    }
+    
+  },[dark])
+ 
+
+
   return (
     <>
-       <section className={`head_section ${dark?"dark":"light"}` }>
+       <section className='head_section'>
             <div>
                 <h1>Where in the World?</h1> 
             </div>

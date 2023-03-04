@@ -21,52 +21,55 @@ type countryDetail={
 }
 
 
-const Country = () => {
-    const [country,setCountry]=useState<countryDetail[]>([]);
+const CountryBorders = () => {
+    const [countborder,setCountBorder]=useState<countryDetail[]>([]);
     const [isLoading,setIsLoading]=useState<boolean>(true);
     const [error,setError]=useState('');
-
-    const {cname}=useParams();
-    // console.log(cname);
+    
+    const {ccode}=useParams();
+    console.log(ccode);
 
 
   
     useEffect(()=>{
         const fetchCountryDetail=async()=>{
-            try {
-                const result= await fetch(`https://restcountries.com/v2/name/${cname}`);
-            
-                // const result= cname?.length===3? await fetch(`https://restcountries.com/v2/alpha/${cname}`):await fetch(`https://restcountries.com/v2/name/${cname}`);
 
-                // if (!result.ok){
-                //     setError('Connection Error.... Record not available!!')
-                //     // throw new Error ('Connection Error.... Record not available!!')
-                // }
-                const data= await result.json();
-                setCountry(data); 
-                // console.log(data);
-                setIsLoading(false);
-            }catch (error:any) {
-                setIsLoading(false);
-                setError(error.message);
+            if (ccode){
+                console.log(ccode)
+
+           
+                try {
+                    const result=await fetch(`https://restcountries.com/v2/alpha/${ccode}`);
+                
+                    if (!result.ok){
+                        setError('Connection Error.... Record not available!!')
+                        throw new Error ('Connection Error.... Record not available!!')
+                    }
+                    const data= await result.json();
+                    setCountBorder(data); 
+                    console.log(countborder);
+                    setIsLoading(false);
+                }catch (error:any) {
+                    setIsLoading(false);
+                    setError(error.message);
+                }
             }
         } 
             
         fetchCountryDetail();
 
-    },[cname])
+    },[ccode,countborder])
 
   return (
         <>
 
-            <Link to='/' className='bkbutton'>&larr; Back</Link> 
+            {/* <Link to='/' className='bkbutton'>&larr; Back</Link>  */}
             
-                {isLoading&&!error&&<p className='LoadMsg'>Loading......</p>}
+                {/* {isLoading&&!error&&<p className='LoadMsg'>Loading......</p>}
                 {error&&!isLoading&&{error}}
-                {/* {country.length===0&&!isLoading&&<p className='LogMsg'>{'No Record Found .....!!! '}</p>} */}
 
                 <div className='count_bg'>
-                  {!error && <section >
+                    <section >
                         {country.map((item)=>{
                             const fname=item.name;
                             const flag=item.flags.png;
@@ -92,8 +95,8 @@ const Country = () => {
                                                 </div>
                                                 <div className='country_dsection1'>
                                                         <h5>Top Level Domain:  <span>{topLevelDomain}</span></h5>
-                                                        {/* <h5>Currencies:  <span>{currencies}</span></h5> */}
-                                                        <h5>Currencies:  <span>{currencies.map((item)=>item.name)}</span></h5>
+                                                        {/* <h5>Currencies:  <span>{currencies}</span></h5> }
+                                                        { <h5>Currencies:  <span>{currencies.map((item)=>item.name)}</span></h5>
                                                         <h5>Languages:  <span>{languages}</span></h5>
                                                 </div>
                                             </div>
@@ -102,8 +105,8 @@ const Country = () => {
                                                     <div className='borders'>
                                                         {borders&&borders.map((border)=>{
                                                             return (
-                                                                <ul key={border}> 
-                                                                 <Link to={`/${border}`} className='borderbtn'><li>{border}</li></Link> 
+                                                                <ul key={border}>
+                                                                    <li>{border}</li>
                                                                 </ul>
                                                             )
                                                         })}
@@ -114,10 +117,10 @@ const Country = () => {
                                 ) 
                         })}
 
-                    </section>}
-                </div>
+                    </section>
+                </div> } */}
         </>
     )
 }
 
-export default Country
+export default CountryBorders

@@ -25,8 +25,6 @@ const Countries = () => {
     const [region, setRegion]=useState<string>('Filter by Region');
     
 
-
-
     useEffect (()=>{
         const fetchCountry=async()=>{
             try {
@@ -45,30 +43,18 @@ const Countries = () => {
         fetchCountry()
     },[]);
 
+    //Create conditions for filtering
 
-    const FilterByRegion=(option:string)=>{
-        setRegion(option);
-    
-        
-    }
-
-    const SearchByCountry=(option:string)=>{
-        setSearchText(option);
-        setRegion('Filter by Region')
-    }
-
-
-   const filterCountries=region==='Filter by Region'?countries.filter((country)=>country.name.toLowerCase().includes(searchText.toLowerCase())):
-   countries.filter((country)=>country.region.toLowerCase().includes(region.toLowerCase()))
-
+   const filterCountries=region!=='Filter by Region'?countries.filter((country)=>country.name.toLowerCase().includes(searchText.toLowerCase()) && country.region.toLowerCase().includes(region.toLowerCase())):
+   countries.filter((country)=>country.name.toLowerCase().includes(searchText.toLowerCase()))
 
   return (
     <>
             
-        <Search countrySearch={SearchByCountry} value={searchText} oregion={region} regionSearch={FilterByRegion}/>
+        <Search countrySearch={setSearchText} value={searchText} oregion={region} regionSearch={setRegion}/>
         
         {isLoading&&!error&&<p className='LoadingMsg'>Loading......</p>}
-        {error&&!isLoading&&<p className='ErrorMsg'>{error}</p>}
+        {/* {error&&!isLoading&&<p className='ErrorMsg'>{error}</p>} */}
         {filterCountries.length===0&&!isLoading&&<p className='LogMsg'>{'No Record Found .....!!! '}</p>}
 
         <section className= 'grid scInfo'>

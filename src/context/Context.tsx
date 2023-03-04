@@ -1,4 +1,4 @@
-import React,{ createContext, useState } from 'react'
+import React,{ createContext, useState} from 'react'
 
 type ContextType={
     dark: boolean;
@@ -9,6 +9,7 @@ export const initialContext= createContext({} as ContextType)
 
 const Context = ({children}:{children: React.ReactNode}) => {
     const [dark, setDark] = useState(false)
+
   return (
     <initialContext.Provider value={{dark, setDark}}>
         {children}

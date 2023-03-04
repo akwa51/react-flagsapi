@@ -41,18 +41,53 @@ img {
 body {
     font-family: 'Nunito Sans',sans-serif;
     background-color:var(--main-background-color);
+    overflow-x:hidden;
 }
 
+.LogMsg{
+    font-size: 16px;
+    font-family: inherit;
+    position: absolute;
+    padding:50px;
+    margin:0 auto;
+    top:218px;
+    z-index: 52;
+    font-weight: 700;
+    width:100vw;
+    height:100vh;
+    text-align: center;
+    color:var(--main-country-detail-text);
+    background-color: var(--main-background-color);
+}
 
 .LoadingMsg{
     font-size: 20px;
     font-family: inherit;
+    position:absolute;
+    text-align: center;
     font-weight: 700;
-    margin-left:30px;
-    padding-top:30px;
+    top:218px;
+    margin:0 auto;
+    z-index: 50;
+    padding:30px;
+    width:100vw;
+    height:100vh;
+    color:var(--main-country-detail-text);
+    background-color: var(--main-background-color); 
 }
 
-
+/* .ErrorMsg{
+    margin-top:50px;
+    margin-bottom:50px;
+    display: block;
+    position:absolute;
+    z-index: 51;
+    padding:50px;
+    font-size: 20px;
+    font-weight: 700;
+    color:var(--main-country-detail-text);
+    background-color: var(--header-background);
+} */
 .icon{
     display: inline-block;
     margin-right: 10px;
@@ -129,6 +164,7 @@ color: white;
     top:119px;
     left:25px;
     font-size: 16px;
+    cursor: pointer;
     background-color: var(--header-background);
 }
 
@@ -297,6 +333,14 @@ color: white;
 }
 
 @media (min-width:768px){
+    .LoadingMsg{
+        font-size: 20px;
+        font-family: inherit;
+        font-weight: 700;
+        margin-left:30px;
+        padding-top:30px;
+    }
+    
     
     .head_section{
         padding:30px;
@@ -377,6 +421,14 @@ color: white;
 }
 
 @media (min-width:992px){
+    .LoadingMsg{
+        font-size: 20px;
+        font-family: inherit;
+        font-weight: 700;
+        margin-left:30px;
+        padding-top:30px;
+    }
+    
 
     .head_section{
         padding:30px;
@@ -449,6 +501,15 @@ color: white;
 
 
 @media (min-width:1280px){
+
+    .LoadingMsg{
+        font-size: 20px;
+        font-family: inherit;
+        font-weight: 700;
+        margin-left:30px;
+        padding-top:30px;
+    }
+    
   
     .head_section{
         padding:30px;
