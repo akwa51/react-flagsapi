@@ -1,5 +1,6 @@
 import { useState,useEffect} from 'react'
-import { Link,useParams } from 'react-router-dom' 
+import {Link,useParams} from 'react-router-dom' 
+
 import './country.css'
 
 
@@ -38,10 +39,11 @@ const Country = () => {
             
                 // const result= cname?.length===3? await fetch(`https://restcountries.com/v2/alpha/${cname}`):await fetch(`https://restcountries.com/v2/name/${cname}`);
 
-                // if (!result.ok){
-                //     setError('Connection Error.... Record not available!!')
-                //     // throw new Error ('Connection Error.... Record not available!!')
-                // }
+                if (!result.ok){
+                    setError('Connection Error.... Record not available!!')
+                    setCountry([]);
+                    throw new Error ('Connection Error.... Record not available!!')
+                }
                 const data= await result.json();
                 setCountry(data); 
                 // console.log(data);
@@ -59,20 +61,19 @@ const Country = () => {
   return (
         <>
 
-            <Link to='/' className='bkbutton'>&larr; Back</Link> 
+            <Link to='/' className='bkbutton'>&larr;  Back</Link> 
             
                 {isLoading&&!error&&<p className='LoadMsg'>Loading......</p>}
                 {error&&!isLoading&&{error}}
-                {/* {country.length===0&&!isLoading&&<p className='LogMsg'>{'No Record Found .....!!! '}</p>} */}
+                {country.length===0&&!isLoading&&<p className='LogMsg'>{'No Record Found .....!!! '}</p>}
 
                 <div className='count_bg'>
                   {!error && <section >
-                        {country.map((item)=>{
+                        {country&&country.map((item)=>{
                             const fname=item.name;
                             const flag=item.flags.png;
-                            // const currencies=item.currencies&&item.currencies[0].name;
                             const currencies=item.currencies&&item.currencies;
-                            const languages=item.languages&&item.languages[0].name;
+                            const languages=item.languages&&item.languages;
                             const {nativeName,numericCode,population,region,capital,subregion,topLevelDomain,borders}=item;
 
                             return(
@@ -85,16 +86,15 @@ const Country = () => {
                                                 <div className='country_bloc1'>
                                                     <h2 className='country_name'>{fname}</h2>
                                                     <h5 className='native_class'>Native Name:  <span>{nativeName}</span></h5>
-                                                    <h5>Population:  <span>{population}</span> </h5>
+                                                    <h5>Population:  <span>{population&&population.toLocaleString('en-US')}</span> </h5>
                                                     <h5>Region:  <span>{region}</span></h5>
                                                     <h5>Sub Region:  <span>{subregion}</span></h5>
                                                     <h5>Capital:  <span>{capital}</span></h5>
                                                 </div>
                                                 <div className='country_dsection1'>
                                                         <h5>Top Level Domain:  <span>{topLevelDomain}</span></h5>
-                                                        {/* <h5>Currencies:  <span>{currencies}</span></h5> */}
-                                                        <h5>Currencies:  <span>{currencies.map((item)=>item.name)}</span></h5>
-                                                        <h5>Languages:  <span>{languages}</span></h5>
+                                                        <h5>Currencies:  <span>{currencies&&currencies.map((item,index)=>`${index!==currencies.length-1?(item.name +','):item.name}`)}</span></h5>
+                                                        <h5>Languages:  <span>{languages&&languages.map((item,index)=>`${index!==languages.length-1?item.name+',':item.name}`)}</span></h5>
                                                 </div>
                                             </div>
                                             <div className='country_dsection2'>
@@ -103,7 +103,7 @@ const Country = () => {
                                                         {borders&&borders.map((border)=>{
                                                             return (
                                                                 <ul key={border}> 
-                                                                 <Link to={`/${border}`} className='borderbtn'><li>{border}</li></Link> 
+                                                                 <Link to={`${border}`} className='borderbtn'><li>{border}</li></Link> 
                                                                 </ul>
                                                             )
                                                         })}
@@ -116,6 +116,7 @@ const Country = () => {
 
                     </section>}
                 </div>
+                
         </>
     )
 }
