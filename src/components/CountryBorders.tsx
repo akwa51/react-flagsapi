@@ -24,34 +24,30 @@ const CountryBorders = () => {
     const [isLoading,setIsLoading]=useState<boolean>(true);
     const [error,setError]=useState('');
     
-    const {code}=useParams();
-    // const {code, cname}=useParams();
-
+ const {code, cname}=useParams();
 
     useEffect(()=>{
         const fetchCountryDetail=async()=>{
+                
+            try {
 
-            if (code){
-                
-                try {
-                    const result=await fetch(`https://restcountries.com/v2/alpha/${code}`);
-                
-                    if (!result.ok){
-                        throw new Error ('Connection Error.... Record not available!!')
-                    }
-                    const data= await result.json();
-                    setCountBorder(data); 
-                    setIsLoading(false);
-                }catch (error:any) {
-                    setIsLoading(false);
-                    setError(error.message);
+                const result= code? await fetch(`https://restcountries.com/v2/alpha/${code}`):await fetch(`https://restcountries.com/v2/name/${cname}`);
+
+                if (!result.ok){
+                    throw new Error ('Connection Error.... Record not available!!')
                 }
+                const data= await result.json();
+                code?setCountBorder(data):setCountBorder(data[0]); 
+                setIsLoading(false);
+            }catch (error:any) {
+                setIsLoading(false);
+                setError(error.message);
             }
         } 
             
         fetchCountryDetail();
 
-    },[code])
+    },[code,cname])
 
 
         const {name,nativeName,flags,population,region,capital,subregion,topLevelDomain,borders,currencies,languages}=countborder;

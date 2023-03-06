@@ -27,22 +27,19 @@ const Country = () => {
     const [isLoading,setIsLoading]=useState<boolean>(true);
     const [error,setError]=useState('');
 
-    const {cname}=useParams();
-    // console.log(cname);
-    
+    const {cname,code}=useParams();
   
     useEffect(()=>{
         const fetchCountryDetail=async()=>{
             try {
-                const result= await fetch(`https://restcountries.com/v2/name/${cname}`);
             
-                // const result= cname?.length===3? await fetch(`https://restcountries.com/v2/alpha/${cname}`):await fetch(`https://restcountries.com/v2/name/${cname}`);
+                const result= code?await fetch(`https://restcountries.com/v2/alpha/${code}`):await fetch(`https://restcountries.com/v2/name/${cname}`);
 
                 if (!result.ok){
                     throw new Error ('Connection Error.... Record not available!!')
                 }
                 const data= await result.json();
-                setCountry(data); 
+                code?setCountry([data]):setCountry(data)
                 setError('');
                 setIsLoading(false);
             }catch (error:any) {
@@ -53,9 +50,7 @@ const Country = () => {
             
         fetchCountryDetail();
 
-    },[cname])
-
-    // console.log(country);
+    },[cname,code])
 
   return (
         <>
@@ -102,7 +97,7 @@ const Country = () => {
                                                         {borders&&borders.map((border)=>{
                                                             return (
                                                                 <ul key={border}> 
-                                                                 <Link to={`${border}`} className='borderbtn'><li>{border}</li></Link> 
+                                                                 <Link to={`/${fname}/${border}`} className='borderbtn'><li>{border}</li></Link> 
                                                                 </ul>
                                                             )
                                                         })}

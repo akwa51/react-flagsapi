@@ -5,7 +5,7 @@ import Country from './components/Country';
 import PageNotFound from './components/PageNotFound';
 import { Routes,Route } from 'react-router-dom';
 import { initialContext } from './context/Context';
-import CountryBorders from './components/CountryBorders';
+// import CountryBorders from './components/CountryBorders';
 
 
 
@@ -17,8 +17,9 @@ function App() {
         <Header />
         <Routes >
           <Route  path="/" element={<Countries/>}/> 
-          <Route  path=":cname" element={<Country />}/>
-          <Route  path=":cname/:code/*" element={<CountryBorders />} /> 
+          <Route  path=":cname" element={<Country/>}/>
+
+          <Route  path=":cname/:code/*" element={<Country/>} /> 
           <Route  path="*" element={<PageNotFound />} />
       </Routes>
     </div>
