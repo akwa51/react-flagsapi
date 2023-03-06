@@ -1,10 +1,9 @@
 
 .count_bg{
     width: 100vw;
-    height: 50vh;
-     background-color: var(--main-background-color);  
+    height: 100vh;
+    background-color: var(--main-background-color);  
 }
-
 
 .country_container{
     position: absolute;
@@ -24,12 +23,20 @@
 
     z-index: 6;
     left:8px;
-    top:120px;
+    top:200px;
     text-align:center;
     Width:100vw;
     height:100vh;
     color:var(--main-country-detail-text);
     background-color:var(--main-background-color)
+}
+
+.ErrorLog{
+    position:absolute;
+    top:250px;
+    left:40px;
+    font-weight: 500;
+    color: var(--main-country-detail-text);
 }
 
 .bkbutton{
@@ -141,7 +148,16 @@ section article .county_specs div h5 span{
      .LoadMsg{
         position:absolute;
         left:5px;
-        top:80px;
+        top:290px;
+    }
+
+
+    .ErrorLog{
+        position:absolute;
+        top:290px;
+        left:230px;
+        font-weight: 500;
+        color: var(--main-country-detail-text);  
     }
     section .country_container{
         display:grid;
@@ -213,7 +229,16 @@ section article .county_specs div h5 span{
     .LoadMsg{
         position:absolute;
         left:5px;
-        top:80px
+        top:280px
+    }
+
+    .ErrorLog{
+        position:absolute;
+        top:280px;
+        left:400px;
+        font-weight: 500;
+        color: var(--main-country-detail-text);
+        
     }
 
     section .country_container{
@@ -269,10 +294,28 @@ section article .county_specs div h5 span{
     .head_section{
         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
     }
-    .LoadMsg{
-        margin-left:130px;
-        margin-top:30px;
+
+    .ErrorLog{
+        position:absolute;
+        top:280px;
+        left:630px;
+        font-weight: 500;
+        color: var(--main-country-detail-text);
+
     }
+   
+    .LoadMsg{   
+        z-index: 6;
+        left:8px;
+        top:280px;
+        text-align:center;
+        Width:100vw;
+        height:100vh;
+        color:var(--main-country-detail-text);
+        background-color:var(--main-background-color)
+    }
+
+    
 
     section .country_container{
         display:grid;

@@ -26,7 +26,7 @@ const CountryBorders = () => {
     
     const {code}=useParams();
     // const {code, cname}=useParams();
-    // console.log(code, cname);
+
 
     useEffect(()=>{
         const fetchCountryDetail=async()=>{
@@ -36,13 +36,11 @@ const CountryBorders = () => {
                 try {
                     const result=await fetch(`https://restcountries.com/v2/alpha/${code}`);
                 
-                    // if (!result.ok){
-                    //     setError('Connection Error.... Record not available!!')
-                    //     throw new Error ('Connection Error.... Record not available!!')
-                    // }
+                    if (!result.ok){
+                        throw new Error ('Connection Error.... Record not available!!')
+                    }
                     const data= await result.json();
                     setCountBorder(data); 
-                    // console.log(countborder);
                     setIsLoading(false);
                 }catch (error:any) {
                     setIsLoading(false);
@@ -55,22 +53,22 @@ const CountryBorders = () => {
 
     },[code])
 
-    // console.log(countborder);
+
         const {name,nativeName,flags,population,region,capital,subregion,topLevelDomain,borders,currencies,languages}=countborder;
         // const flag=countborder.flags.png
         // const fname=countborder.name;
-        // <p>This is the code :{code}</p>
+
 
   return (
         <>
             
             <Link to='/' className='bkbutton'>&larr; Back</Link> 
         
-                {isLoading&&!error&&<p className='LoadMsg'>Loading......</p>}
-                {error&&!isLoading&&{error}}
-
-            { <div className='count_bg'>
-                <section >
+            {isLoading&&!error&&<p className='LoadMsg'>Loading......</p>}
+            {error&&!isLoading&&<p className='ErrorLog'>{error}</p>}
+            {!error&&Object.keys(countborder).length===0&&!isLoading&&<p className='LogMsg'>{'No Record Found .....!!! '}</p>}
+            {<div className='count_bg'>
+                {!error && <section >
                         <article className='country_container'>
                             <div className='csflag'>
                                 {flags&&<img className='country_img' src={flags.png} alt={name}/>}
@@ -105,7 +103,7 @@ const CountryBorders = () => {
                                 </div>
                             </div>
                         </article>
-                </section>
+                </section>}
             </div>  }                 
         </>
     )

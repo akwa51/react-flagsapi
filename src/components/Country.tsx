@@ -29,8 +29,7 @@ const Country = () => {
 
     const {cname}=useParams();
     // console.log(cname);
-
-
+    
   
     useEffect(()=>{
         const fetchCountryDetail=async()=>{
@@ -40,13 +39,11 @@ const Country = () => {
                 // const result= cname?.length===3? await fetch(`https://restcountries.com/v2/alpha/${cname}`):await fetch(`https://restcountries.com/v2/name/${cname}`);
 
                 if (!result.ok){
-                    setError('Connection Error.... Record not available!!')
-                    setCountry([]);
                     throw new Error ('Connection Error.... Record not available!!')
                 }
                 const data= await result.json();
                 setCountry(data); 
-                // console.log(data);
+                setError('');
                 setIsLoading(false);
             }catch (error:any) {
                 setIsLoading(false);
@@ -58,14 +55,16 @@ const Country = () => {
 
     },[cname])
 
+    // console.log(country);
+
   return (
         <>
 
             <Link to='/' className='bkbutton'>&larr;  Back</Link> 
             
                 {isLoading&&!error&&<p className='LoadMsg'>Loading......</p>}
-                {error&&!isLoading&&{error}}
-                {country.length===0&&!isLoading&&<p className='LogMsg'>{'No Record Found .....!!! '}</p>}
+                {error&&!isLoading&&<p className='ErrorLog'>{error}</p>}
+                {!error&&country.length===0&&!isLoading&&<p className='LogMsg'>{'No Record Found .....!!! '}</p>}
 
                 <div className='count_bg'>
                   {!error && <section >

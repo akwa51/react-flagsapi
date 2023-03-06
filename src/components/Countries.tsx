@@ -33,6 +33,7 @@ const Countries = () => {
                 const mcountries =await response.json();
                 setCountries(mcountries);
                 setIsLoading(false);
+                setError('');
                 
             } catch (error:any) {
                 setIsLoading(false)
@@ -54,32 +55,32 @@ const Countries = () => {
         <Search countrySearch={setSearchText} value={searchText} oregion={region} regionSearch={setRegion}/>
         
         {isLoading&&!error&&<p className='LoadingMsg'>Loading......</p>}
-        {/* {error&&!isLoading&&<p className='ErrorMsg'>{error}</p>} */}
-        {filterCountries.length===0&&!isLoading&&<p className='LogMsg'>{'No Record Found .....!!! '}</p>}
+        {error&&!isLoading&&<p className='ErrorMsg'>{error}</p>}
+        {!error&&filterCountries.length===0&&!isLoading&&<p className='LogMsg'>{'No Record Found .....!!! '}</p>}
+        <div className='countryBgd'>
+            <section className= 'grid scInfo'>
+                {filterCountries.map((country)=>{
 
-        <section className= 'grid scInfo'>
-            {filterCountries.map((country)=>{
-
-                const name=country.name;
-                const flag=country.flags.png;
-                const {numericCode,population,region,capital}=country;
-                
-                    return(
-                            
-                        <article key={numericCode}>
-                            <img className='cflag' src={flag.toString()} alt={name.toString()}/>
-                            <div className='countryInfo'>
-                                <Link to = {`/${name}`} className='linkText'><h3 >{name}</h3></Link>
-                                <h4 className='scInfo'>Population: <span>{population.toLocaleString('en-US')}</span></h4>
-                                <h4 className='scInfo'>Region: <span>{region}</span> </h4>
-                                <h4 className='scInfo'>Capital: <span>{capital}</span></h4>
-                            </div>
-                        </article>   
-                    )
-                })
-            }
-        </section>
-      
+                    const name=country.name;
+                    const flag=country.flags.png;
+                    const {numericCode,population,region,capital}=country;
+                    
+                        return(
+                                
+                            <article key={numericCode}>
+                                <img className='cflag' src={flag.toString()} alt={name.toString()}/>
+                                <div className='countryInfo'>
+                                    <Link to = {`/${name}`} className='linkText'><h3 >{name}</h3></Link>
+                                    <h4 className='scInfo'>Population: <span>{population.toLocaleString('en-US')}</span></h4>
+                                    <h4 className='scInfo'>Region: <span>{region}</span> </h4>
+                                    <h4 className='scInfo'>Capital: <span>{capital}</span></h4>
+                                </div>
+                            </article>   
+                        )
+                    })
+                }
+            </section>
+        </div>
     </>
   )
 }
