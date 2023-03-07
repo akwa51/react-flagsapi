@@ -139,7 +139,7 @@ section article .county_specs div h5 span{
     .bkbutton{
         position:absolute;
         z-index: 5;
-        top:180px;
+        top:120px;
         left:40px;
         padding:8px 10px;
         font-weight: 600;
@@ -163,7 +163,7 @@ section article .county_specs div h5 span{
         display:grid;
         grid-template-columns: repeat(2,1fr);
         gap:10px;
-        top:280px;
+        top:150px;
     }
 
     .county_specs{
@@ -322,7 +322,7 @@ section article .county_specs div h5 span{
         grid-template-columns: 0.40fr 0.60fr;
         gap:30px;
         padding:50px;
-        top:200px;
+        top:150px;
     }
 
     .county_specs{
@@ -334,7 +334,7 @@ section article .county_specs div h5 span{
 
     .bkbutton{
         position:absolute;
-        top:150px;
+        top:120px;
         left:40px;
         z-index: 5;
         padding:8px 10px;
