@@ -15,28 +15,24 @@ const Countries = () => {
     useEffect (()=>{
 
         if (!countriesData){
-                const fetchCountry=async()=>{
-                    try {
-                        const response=await fetch('https://restcountries.com/v2/all');
-                        if(!response.ok) throw new Error('Error!!...Connection Not Established!')
-                        const data =await response.json();
-                        setCountriesData(data);
-                        setIsLoading(false);
-                        setError('');
-                        
-                    } catch (error:any) {
-                        setIsLoading(false)
-                        setError(error.message)
-                    } 
-                }
+            const FetchAllCountries=async()=>{
+                try {
+                    const response=await fetch('https://restcountries.com/v2/all');
+                    if(!response.ok) throw new Error('Error!!...Connection Not Established!')
+                    const data =await response.json();
+                    setCountriesData(data);
+                    setError('');
+                } catch (error:any) {
+                    setError(error.message)
+                } 
+            }
             
-            fetchCountry()
-            setIsLoading(false)
+            FetchAllCountries()
         }else{
-            setIsLoading(false);
             setError('');
         }
     },[countriesData,setCountriesData]);
+
 
     //Create conditions for filtering
 
@@ -52,12 +48,12 @@ const Countries = () => {
             
         <Search countrySearch={setSearchText} value={searchText} oregion={region} regionSearch={setRegion}/>
         
-        {isLoading&&!error&&<p className='LoadingMsg'>Loading......</p>}
-        {error&&!isLoading&&<p className='ErrorMsg'>{error}</p>}
-        {/* {!error&&filterCountries.length===0&&!isLoading&&<p className='LogMsg'>{'No Record Found .....!!! '}</p>} */}
-        {!countriesData&&filterCountries.length===0&&<p className='LogMsg'>{'No Record Found .....!!! '}</p>}
-        <div className='countryBgd'>
-            <section className= 'grid scInfo'>
+        {isLoading&&<p className='LoadingMessage'>Loading......</p>}
+        {isLoading&&filterCountries.length>0?setIsLoading(false):error}
+        {!isLoading&&filterCountries.length===0&&<p className='LogMessage'>{'No Record Found .....!!! '}</p>}
+
+        <div className='mainContainer'>
+            <section className= 'grid'>
                 {filterCountries.map((country)=>{
 
                     const name=country.name;
@@ -67,12 +63,12 @@ const Countries = () => {
                         return(
                                 
                             <article key={numericCode}>
-                                <img className='cflag' src={flag.toString()} alt={name.toString()}/>
+                                <img className='imageflag' src={flag.toString()} alt={name.toString()}/>
                                 <div className='countryInfo'>
                                     <Link to = {`/${name}`} className='linkText'><h3 >{name}</h3></Link>
-                                    <h4 className='scInfo'>Population: <span>{population.toLocaleString('en-US')}</span></h4>
-                                    <h4 className='scInfo'>Region: <span>{region}</span> </h4>
-                                    <h4 className='scInfo'>Capital: <span>{capital}</span></h4>
+                                    <h4>Population: <span>{population.toLocaleString('en-US')}</span></h4>
+                                    <h4>Region: <span>{region}</span> </h4>
+                                    <h4>Capital: <span>{capital}</span></h4>
                                 </div>
                             </article>   
                         )

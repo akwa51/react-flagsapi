@@ -11,7 +11,7 @@
 
 
 
-type countryDetails={
+type countryDetailsType={
     name:string,
     nativeName:string,
     flags:{
@@ -29,4 +29,4 @@ type countryDetails={
     borders:string[],
 }
 
-export type {countryType,countryDetails}
+export type {countryType,countryDetailsType}

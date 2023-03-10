@@ -1,35 +1,32 @@
 body{
     overflow-x: hidden;
 }
-.count_bg{
+.mainCountryContainer{
     width: 100vw;
     height: 100vh;
     background-color: var(--main-background-color);  
 }
 
-.country_container{
+.countryDetailsContainer{
     position: absolute;
-    /* margin:0,auto; */
     width: 100vw;
     top:150px;
-    /* left:0;
-    right:0; */
     padding:20px;
     background-color: var(--main-background-color)
 }
 
-.LoadMsg{
+.LoadMessage{
     font-size: 20px;
     font-family: inherit;
     font-weight: 700;
     Position:absolute;
 
     z-index: 6;
-    left:18px;
+    left:160px;
     top:120px;
     text-align:center;
-    Width:100vw;
-    height:100vh;
+    /* Width:100vw;
+    height:100vh; */
     color:var(--main-country-detail-text);
     background-color:var(--main-background-color)
 }
@@ -42,7 +39,7 @@ body{
     color: var(--main-country-detail-text);
 }
 
-.bkbutton{
+.backbtn{
     position:absolute;
     top:120px;
     left:20px;
@@ -60,20 +57,20 @@ body{
     background-color:var(--header-background);
     color: var(--main-country-detail-text);
 }
-.csflag{
-    margin-bottom:20px;
+.countryflag{
+    margin-bottom:30px;
 }
 .country_img{
     width: 100%;
     height: 230px;
     margin-top:20px;
 }
-.country_container .country_bloc1{
+.countryDetailsContainer .country_bloc1{
     margin-top:20px;
     color:var(--main-country-detail-text);
 }
 
-.country_dsection1,.country_dsection2,.native_class
+.country_bloc2,.country_borders,.native_class
 {
     margin-top:30px;
     color:var(--main-country-detail-text)
@@ -101,25 +98,25 @@ article .county_specs div span{
     letter-spacing: 1px;
 }
 
-.country_dsection2 h3{
+.country_borders h3{
     font-size: 16px;
     font-weight: 600;
     margin-bottom:10px;
     display: block;
 }
 
-.country_dsection2 h3 span{
+.country_borders h3 span{
     font-size:16px;
     font-weight: 500;
 }
 
-.country_dsection2 .borders{
+.country_borders .borders{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.span_lang{
+.country_lang{
     display: flex;
 }
 .language{
@@ -147,7 +144,7 @@ article .county_specs div span{
 }
 
 @media(min-width:768px){
-    .bkbutton{
+    .backbtn{
         position:absolute;
         z-index: 5;
         top:120px;
@@ -156,13 +153,13 @@ article .county_specs div span{
         font-weight: 600;
     }
    
-     .LoadMsg{
+     .LoadMessage{
         position:absolute;
-        left:5px;
+        left:280px;
         top:120px;
         text-align:center;
-        Width:100vw;
-        height:100vh;
+        /* Width:100vw;
+        height:100vh; */
         color:var(--main-country-detail-text);
         background-color:var(--main-background-color)
     }
@@ -175,7 +172,7 @@ article .county_specs div span{
         font-weight: 500;
         color: var(--main-country-detail-text);  
     }
-    section .country_container{
+    section .countryDetailsContainer{
         display:grid;
         grid-template-columns: 250px 1fr;
         gap:10px;
@@ -198,12 +195,13 @@ article .county_specs div span{
         height:250px;
     }
 
-    .span_lang{
+    .country_lang{
         display: flex;
+         /* flex-wrap: wrap; */
     }
     .language{
         display: flex;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
     }
 
     .county_specs .country_bloc1{
@@ -224,26 +222,26 @@ article .county_specs div span{
         margin-bottom: 15px;
     }
 
-    .county_specs .country_dsection1{
+    .county_specs .country_bloc2{
         margin-top:0px;
     }
-    .county_specs .country_dsection1 p{
+    .county_specs .country_bloc2 p{
         margin:0px;
         font-weight:600;
     } 
 
-    .country_dsection2{
+    .country_borders{
         display: flex;
        align-items: center;
        flex-wrap: wrap;
        margin-top:20px;
     }
 
-    .country_dsection2 h3{
+    .country_borders h3{
         font-size: 14px;
         margin:0 5px
     }
-    .count_bg{
+    .mainCountryContainer{
         width: 100vw;
         height: 100vh;
          background-color: var(--main-background-color);  
@@ -251,7 +249,7 @@ article .county_specs div span{
 }
 
 @media(min-width:992px){
-    .bkbutton{
+    .backbtn{
         position:absolute;
         z-index: 5;
         top:120px;
@@ -260,13 +258,13 @@ article .county_specs div span{
         font-weight: 600;
     }
 
-    .LoadMsg{
+    .LoadMessage{
         position:absolute;
-        left:5px;
-        top:280px;
+        left:395px;
+        top:140px;
         text-align:center;
-        Width:100vw;
-        height:100vh;
+        /* Width:100vw;
+        height:100vh; */
         color:var(--main-country-detail-text);
         background-color:var(--main-background-color)
     }
@@ -279,7 +277,7 @@ article .county_specs div span{
         color: var(--main-country-detail-text); 
     }
 
-    .section_article{
+    .countryHeadSection{
         width: 90vw;
         margin:0, auto;
     }
@@ -294,7 +292,7 @@ article .county_specs div span{
         flex-wrap: wrap;
     }
 
-    section .country_container{
+    section .countryDetailsContainer{
         display:grid;
         grid-template-columns: 400px 1fr;
         gap:10px;
@@ -324,19 +322,18 @@ article .county_specs div span{
     .country_name{
         font-weight: 800;
         font-size: 22px;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
     }
 
-    .county_specs .country_dsection1{
+    .county_specs .country_bloc2{
         margin-top:0px;
     }
-    .county_specs .country_dsection1 p{
+    .county_specs .country_bloc2 p{
         margin:5px;
         font-weight:600;
     }
 
-    .count_bg{
-       
+    .mainCountryContainer{
         width: 100vw;
         height: 100vh;
          background-color: var(--main-background-color);  
@@ -349,6 +346,13 @@ article .county_specs div span{
         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
     }
 
+    .country_name{
+        margin-top:10px;
+        font-weight: 800;
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+
     .ErrorLog{
         position:absolute;
         top:280px;
@@ -358,20 +362,20 @@ article .county_specs div span{
 
     }
    
-    .LoadMsg{   
+    .LoadMessage{   
         z-index: 6;
-        left:8px;
-        top:280px;
+        left:498px;
+        top:120px;
         text-align:center;
-        Width:100vw;
-        height:100vh;
+        /* Width:100vw;
+        height:100vh; */
         color:var(--main-country-detail-text);
         background-color:var(--main-background-color)
     }
 
     
 
-    section .country_container{
+    section .countryDetailsContainer{
         display:grid;
         grid-template-columns: 0.35fr 0.65fr;
         gap:30px;
@@ -386,7 +390,7 @@ article .county_specs div span{
     }
 
 
-    .bkbutton{
+    .backbtn{
         position:absolute;
         top:120px;
         left:40px;
@@ -395,7 +399,7 @@ article .county_specs div span{
         font-weight: 600;
     }
 
-    .count_bg{
+    .maincontainer{
         width: 100vw;
         height: 100vh;
          background-color: var(--main-background-color);  
@@ -404,4 +408,16 @@ article .county_specs div span{
     .country_group2{
         margin-top:30px;
     }
+
+    .country_borders h3{
+        display:inline;
+    }
+
+    .country_borders .borders{
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap; 
+    }
+
+
 }

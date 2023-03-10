@@ -4,22 +4,20 @@ import Header from './components/Header';
 import Country from './components/Country';
 import PageNotFound from './components/PageNotFound';
 import { Routes,Route } from 'react-router-dom';
-import { initialContext } from './context/ThemeContext';
-// import CountryBorders from './components/CountryBorders';
+import { nightModeContext } from './context/ThemeContext';
+
 
 
 
 function App() {
-  const {dark} =useContext(initialContext)
+  const {dark} =useContext(nightModeContext)
   
   return (
     <div className= {dark?"dark":"light"}>
       <Header />
       <Routes >
           <Route  path="/" element={<Countries/>}/> 
-          <Route  path=":cname" element={<Country/>}/>
-
-          <Route  path=":cname/:code/*" element={<Country/>} /> 
+          <Route  path=":countryName" element={<Country/>}/>
           <Route  path="*" element={<PageNotFound />} />
       </Routes>
     </div>

@@ -1,5 +1,5 @@
 import React,{createContext, useState, useEffect} from 'react'
-import { countryDetails} from '../types/CountryTypes'
+import { countryDetailsType} from '../types/CountryTypes'
 import { DataContextType } from '../types/ContextType';
 
 const url='https://restcountries.com/v2/all';
@@ -9,7 +9,7 @@ const url='https://restcountries.com/v2/all';
   export const DataFileContext= createContext({} as DataContextType)
 
   const DataContext = ({children}:{children: React.ReactNode}) => {
-      const [countriesData,setCountriesData]=useState<countryDetails[]>([]);
+      const [countriesData,setCountriesData]=useState<countryDetailsType[]>([]);
 
       useEffect(()=>{
 
@@ -21,7 +21,7 @@ const url='https://restcountries.com/v2/all';
                 setCountriesData(data);
                 
             } catch (error:any) {
-
+                console.log(error)
             } 
         }
 

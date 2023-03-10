@@ -1,12 +1,12 @@
 import {useEffect,useContext,useState } from 'react'
 import {IoMoonOutline} from 'react-icons/io5'
 import {IoMdMoon} from 'react-icons/io'
-import { initialContext } from '../context/ThemeContext'
+import { nightModeContext } from '../context/ThemeContext'
 
 
 const Header = () => {
 
-  const {dark,setDark} = useContext(initialContext);
+  const {dark,setDark} = useContext(nightModeContext);
   const [error,setError]=useState('');
   
   useEffect(() => {
@@ -17,7 +17,7 @@ const Header = () => {
         setDark(JSON.parse(localVar));
       }
     } catch (err:any) {
-      console.log(err);
+      // console.log(err);
       setError('Error Saving To Local Storage!')
     }
     
@@ -29,7 +29,7 @@ const Header = () => {
     try {
        localStorage.setItem('Mode', JSON.stringify(dark));
     } catch (err:any) {
-      console.log(err);
+      // console.log(err);
       setError('Error Saving To Local Storage!')
     }
     

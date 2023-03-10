@@ -1,4 +1,4 @@
-import { countryDetails } from "./CountryTypes";
+import { countryDetailsType } from "./CountryTypes";
 
 type ThemeContextType={
     dark: boolean;
@@ -6,8 +6,8 @@ type ThemeContextType={
 }
 
 type DataContextType={
-    countriesData:countryDetails[];
-    setCountriesData:React.Dispatch<React.SetStateAction<countryDetails[]>>
+    countriesData:countryDetailsType[];
+    setCountriesData:React.Dispatch<React.SetStateAction<countryDetailsType[]>>
 }
 
 export type {ThemeContextType,DataContextType};

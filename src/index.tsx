@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom';
-import Context from './context/ThemeContext';
+import ThemeContext from './context/ThemeContext';
 import DataContext from './context/DataContext';
 import './App.css';
 
@@ -12,9 +12,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <Router>
     <DataContext>
-      <Context>
+      <ThemeContext>
         <App />
-      </Context>
+      </ThemeContext>
     </DataContext>
   </Router>
 );
