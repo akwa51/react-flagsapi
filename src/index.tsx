@@ -1,7 +1,8 @@
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import { BrowserRouter } from 'react-router-dom';
-import Context from './context/Context';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Context from './context/ThemeContext';
+import DataContext from './context/DataContext';
 import './App.css';
 
 
@@ -9,10 +10,12 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <BrowserRouter>
-  <Context>
-    <App />
-  </Context>
-  </BrowserRouter>
+  <Router>
+    <DataContext>
+      <Context>
+        <App />
+      </Context>
+    </DataContext>
+  </Router>
 );
 

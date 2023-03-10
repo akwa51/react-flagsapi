@@ -1,4 +1,6 @@
-
+body{
+    overflow-x: hidden;
+}
 .count_bg{
     width: 100vw;
     height: 100vh;
@@ -7,10 +9,11 @@
 
 .country_container{
     position: absolute;
-    margin:0,auto;
+    /* margin:0,auto; */
+    width: 100vw;
     top:150px;
-    left:0;
-    right:0;
+    /* left:0;
+    right:0; */
     padding:20px;
     background-color: var(--main-background-color)
 }
@@ -22,8 +25,8 @@
     Position:absolute;
 
     z-index: 6;
-    left:8px;
-    top:200px;
+    left:18px;
+    top:120px;
     text-align:center;
     Width:100vw;
     height:100vh;
@@ -57,18 +60,18 @@
     background-color:var(--header-background);
     color: var(--main-country-detail-text);
 }
-
+.csflag{
+    margin-bottom:20px;
+}
 .country_img{
     width: 100%;
     height: 230px;
     margin-top:20px;
 }
 .country_container .country_bloc1{
-    margin-top:30px;
+    margin-top:20px;
     color:var(--main-country-detail-text);
 }
-
-
 
 .country_dsection1,.country_dsection2,.native_class
 {
@@ -79,21 +82,20 @@
 .country_name{
     font-weight: 800;
     font-size: 22px;
-    margin-bottom: 25px;
-}
-
-.country_name h5{
     margin-bottom: 10px;
+    /* margin-bottom: 10px; */
+    color:var(--main-country-detail-text);
+    background-color: var(--main-background-color)
 }
 
-section article .county_specs div h5{
+article .county_specs div p{
     margin: 10px 0;
     font-weight:600;
     font-size: 14px;
     letter-spacing: 1px;
 }
 
-section article .county_specs div h5 span{
+article .county_specs div span{
     font-weight: 300;
     font-size: 14px;
     letter-spacing: 1px;
@@ -103,6 +105,7 @@ section article .county_specs div h5 span{
     font-size: 16px;
     font-weight: 600;
     margin-bottom:10px;
+    display: block;
 }
 
 .country_dsection2 h3 span{
@@ -110,29 +113,37 @@ section article .county_specs div h5 span{
     font-weight: 500;
 }
 
-.country_dsection2 ul li{
-    list-style: none;
-    padding:4px;
-    font-size: 12px;
-}
-
 .country_dsection2 .borders{
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
 }
 
-.country_dsection2 .borders ul {
-    margin:6px;
-    padding: 3px 20px;
-    background-color:var(--header-background);
-    border-radius: 2px;;
-    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.104931);
-    cursor: pointer;
+.span_lang{
+    display: flex;
+}
+.language{
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .borderbtn{
     text-decoration: none;
     color:var(--main-country-detail-text);
+
+    margin:6px;
+    padding: 3px 5px;
+    background-color:var(--header-background);
+    border-radius: 2px;
+    width: fit-content;
+    height:28px;
+    line-height: 18px;
+    text-align: center;
+    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.104931);
+    cursor: pointer;
+
+    font-size: 12px;
+    font-family: inherit;
 }
 
 @media(min-width:768px){
@@ -140,7 +151,7 @@ section article .county_specs div h5 span{
         position:absolute;
         z-index: 5;
         top:120px;
-        left:40px;
+        left:25px;
         padding:8px 10px;
         font-weight: 600;
     }
@@ -148,7 +159,12 @@ section article .county_specs div h5 span{
      .LoadMsg{
         position:absolute;
         left:5px;
-        top:290px;
+        top:120px;
+        text-align:center;
+        Width:100vw;
+        height:100vh;
+        color:var(--main-country-detail-text);
+        background-color:var(--main-background-color)
     }
 
 
@@ -161,23 +177,40 @@ section article .county_specs div h5 span{
     }
     section .country_container{
         display:grid;
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: 250px 1fr;
         gap:10px;
-        top:150px;
+        top:180px;
+    }
+
+    .country_group2{
+        padding-left:10px;
+        margin-top:10px;
     }
 
     .county_specs{
         display: grid;
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: 45% 55%;
         gap:10px
     }
 
     .country_img{
-        width:350px;
-        height:293px;
+        width:250px;
+        height:250px;
     }
 
-    .county_specs .country_bloc1 h5{
+    .span_lang{
+        display: flex;
+    }
+    .language{
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    .county_specs .country_bloc1{
+        margin-top:0px;
+    }
+
+    .county_specs .country_bloc1 p{
         margin:0px;
         font-weight:600
     }
@@ -185,23 +218,25 @@ section article .county_specs div h5 span{
         margin-top:5px
     }
     .country_name{
+        margin-top:20px;
         font-weight: 800;
         font-size: 22px;
         margin-bottom: 15px;
     }
 
     .county_specs .country_dsection1{
-        margin-top:80px;
+        margin-top:0px;
     }
-    .county_specs .country_dsection1 h5{
+    .county_specs .country_dsection1 p{
         margin:0px;
         font-weight:600;
-    }
+    } 
 
     .country_dsection2{
         display: flex;
        align-items: center;
        flex-wrap: wrap;
+       margin-top:20px;
     }
 
     .country_dsection2 h3{
@@ -209,7 +244,6 @@ section article .county_specs div h5 span{
         margin:0 5px
     }
     .count_bg{
-      
         width: 100vw;
         height: 100vh;
          background-color: var(--main-background-color);  
@@ -221,7 +255,7 @@ section article .county_specs div h5 span{
         position:absolute;
         z-index: 5;
         top:120px;
-        left:40px;
+        left:25px;
         padding:8px 10px;
         font-weight: 600;
     }
@@ -229,7 +263,12 @@ section article .county_specs div h5 span{
     .LoadMsg{
         position:absolute;
         left:5px;
-        top:280px
+        top:280px;
+        text-align:center;
+        Width:100vw;
+        height:100vh;
+        color:var(--main-country-detail-text);
+        background-color:var(--main-background-color)
     }
 
     .ErrorLog{
@@ -237,21 +276,36 @@ section article .county_specs div h5 span{
         top:280px;
         left:400px;
         font-weight: 500;
-        color: var(--main-country-detail-text);
-        
+        color: var(--main-country-detail-text); 
+    }
+
+    .section_article{
+        width: 90vw;
+        margin:0, auto;
+    }
+
+    .country_group2{
+        margin-top:20px;
+    }
+
+    span .language{
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
     }
 
     section .country_container{
         display:grid;
-        grid-template-columns: 0.45fr 0.55fr;
-        gap:30px;
-        top:150px;
+        grid-template-columns: 400px 1fr;
+        gap:10px;
+        top:180px;
     }
 
     .county_specs{
         display: grid;
-        grid-template-columns: repeat(2,1fr);
-        gap:10px
+        /* grid-template-columns: repeat(2,1fr); */
+        grid-template-columns: 45% 55%;
+        gap:10px;
     }
 
     .country_img{
@@ -259,7 +313,7 @@ section article .county_specs div h5 span{
         height:293px;
     }
 
-    .county_specs .country_bloc1 h5{
+    .county_specs .country_bloc1 p{
         margin:5px;
         font-weight:600
     }
@@ -274,9 +328,9 @@ section article .county_specs div h5 span{
     }
 
     .county_specs .country_dsection1{
-        margin-top:95px;
+        margin-top:0px;
     }
-    .county_specs .country_dsection1 h5{
+    .county_specs .country_dsection1 p{
         margin:5px;
         font-weight:600;
     }
@@ -319,7 +373,7 @@ section article .county_specs div h5 span{
 
     section .country_container{
         display:grid;
-        grid-template-columns: 0.40fr 0.60fr;
+        grid-template-columns: 0.35fr 0.65fr;
         gap:30px;
         padding:50px;
         top:150px;
@@ -327,7 +381,7 @@ section article .county_specs div h5 span{
 
     .county_specs{
         display: grid;
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: 0.30fr 0.70fr;
         gap:10px
     }
 
@@ -345,5 +399,9 @@ section article .county_specs div h5 span{
         width: 100vw;
         height: 100vh;
          background-color: var(--main-background-color);  
+    }
+
+    .country_group2{
+        margin-top:30px;
     }
 }

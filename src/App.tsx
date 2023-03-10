@@ -4,7 +4,7 @@ import Header from './components/Header';
 import Country from './components/Country';
 import PageNotFound from './components/PageNotFound';
 import { Routes,Route } from 'react-router-dom';
-import { initialContext } from './context/Context';
+import { initialContext } from './context/ThemeContext';
 // import CountryBorders from './components/CountryBorders';
 
 
@@ -14,8 +14,8 @@ function App() {
   
   return (
     <div className= {dark?"dark":"light"}>
-        <Header />
-        <Routes >
+      <Header />
+      <Routes >
           <Route  path="/" element={<Countries/>}/> 
           <Route  path=":cname" element={<Country/>}/>
 

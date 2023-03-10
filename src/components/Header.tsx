@@ -1,7 +1,7 @@
 import {useEffect,useContext,useState } from 'react'
 import {IoMoonOutline} from 'react-icons/io5'
 import {IoMdMoon} from 'react-icons/io'
-import { initialContext } from '../context/Context'
+import { initialContext } from '../context/ThemeContext'
 
 
 const Header = () => {

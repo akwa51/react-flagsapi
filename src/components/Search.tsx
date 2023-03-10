@@ -1,12 +1,6 @@
 import {HiSearch} from 'react-icons/hi'
+import { inputTS } from '../types/InputTypes'
 
-
-type inputTS={
-  value:string,
-  countrySearch:(str:string)=>void,
-  oregion:string,
-  regionSearch:(str:string)=>void
-}
 
 
 const Search = ({countrySearch,value,oregion,regionSearch}:inputTS) => {
