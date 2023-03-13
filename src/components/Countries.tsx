@@ -62,7 +62,7 @@ const Countries = () => {
                     
                         return(
                                 
-                            <article key={numericCode}>
+                            <article key={numericCode} className='article-container'>
                                 <img className='imageflag' src={flag.toString()} alt={name.toString()}/>
                                 <div className='countryInfo'>
                                     <Link to = {`/${name}`} className='linkText'><h3 >{name}</h3></Link>
