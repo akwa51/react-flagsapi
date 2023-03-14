@@ -10,8 +10,8 @@ body{
 .countryDetailsContainer{
     position: absolute;
     width: 100vw;
-    top:150px;
-    padding:20px;
+    top:216px;
+    padding:1px 28px;
     background-color: var(--main-background-color)
 }
 
@@ -25,8 +25,6 @@ body{
     left:160px;
     top:120px;
     text-align:center;
-    /* Width:100vw;
-    height:100vh; */
     color:var(--main-country-detail-text);
     background-color:var(--main-background-color)
 }
@@ -42,14 +40,14 @@ body{
 .backbtn{
     position:absolute;
     top:120px;
-    left:20px;
+    left:28px;
     z-index: 5;
-    padding:8px 0px;
-    height:40px;
-    width: 120px;
+    padding:6px 23px;
+    height:32px;
+    width: 104px;
     text-decoration: none;
     text-align: center;
-    font:bold inherit;
+    font-family:  inherit;
     font-weight: 300;
     font-size: 14px;
     box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.293139);
@@ -58,29 +56,30 @@ body{
     color: var(--main-country-detail-text);
 }
 .countryflag{
-    margin-bottom:30px;
+    margin-bottom:44px;
 }
 .country_img{
     width: 100%;
     height: 230px;
-    margin-top:20px;
+    /* margin-top:20px; */
 }
 .countryDetailsContainer .country_bloc1{
-    margin-top:20px;
+    margin-top:16px;
     color:var(--main-country-detail-text);
 }
 
-.country_bloc2,.country_borders,.native_class
+.country_bloc2,.country_borders
 {
-    margin-top:30px;
+    margin-top:32px;
     color:var(--main-country-detail-text)
 }
-
+.native_class{
+    color:var(--main-country-detail-text)
+}
 .country_name{
     font-weight: 800;
     font-size: 22px;
     margin-bottom: 10px;
-    /* margin-bottom: 10px; */
     color:var(--main-country-detail-text);
     background-color: var(--main-background-color)
 }
@@ -101,7 +100,7 @@ article .county_specs div span{
 .country_borders h3{
     font-size: 16px;
     font-weight: 600;
-    margin-bottom:10px;
+    margin-bottom:16px;
     display: block;
 }
 
@@ -114,6 +113,7 @@ article .county_specs div span{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    padding-bottom: 60px;
 }
 
 .country_lang{
@@ -148,8 +148,7 @@ article .county_specs div span{
         position:absolute;
         z-index: 5;
         top:120px;
-        left:25px;
-        padding:8px 10px;
+        left:33px;
         font-weight: 600;
     }
    
@@ -158,8 +157,6 @@ article .county_specs div span{
         left:280px;
         top:120px;
         text-align:center;
-        /* Width:100vw;
-        height:100vh; */
         color:var(--main-country-detail-text);
         background-color:var(--main-background-color)
     }
@@ -172,16 +169,21 @@ article .county_specs div span{
         font-weight: 500;
         color: var(--main-country-detail-text);  
     }
+
+    .countryflag{
+        margin-bottom: 0px;
+    }
     section .countryDetailsContainer{
         display:grid;
         grid-template-columns: 250px 1fr;
         gap:10px;
-        top:180px;
+        top:230px;
+        padding:1px 30px;
     }
 
     .country_group2{
         padding-left:10px;
-        margin-top:10px;
+        /* margin-top:10px; */
     }
 
     .county_specs{
@@ -216,7 +218,7 @@ article .county_specs div span{
         margin-top:5px
     }
     .country_name{
-        margin-top:20px;
+        margin-top:5px;
         font-weight: 800;
         font-size: 22px;
         margin-bottom: 15px;
@@ -237,6 +239,10 @@ article .county_specs div span{
        margin-top:20px;
     }
 
+    .country_borders .borders{
+        padding-bottom: 0px;
+    }
+
     .country_borders h3{
         font-size: 14px;
         margin:0 5px
@@ -253,8 +259,7 @@ article .county_specs div span{
         position:absolute;
         z-index: 5;
         top:120px;
-        left:25px;
-        padding:8px 10px;
+        left:65px;
         font-weight: 600;
     }
 
@@ -263,8 +268,6 @@ article .county_specs div span{
         left:395px;
         top:140px;
         text-align:center;
-        /* Width:100vw;
-        height:100vh; */
         color:var(--main-country-detail-text);
         background-color:var(--main-background-color)
     }
@@ -277,13 +280,8 @@ article .county_specs div span{
         color: var(--main-country-detail-text); 
     }
 
-    .countryHeadSection{
-        width: 90vw;
-        margin:0, auto;
-    }
-
     .country_group2{
-        margin-top:20px;
+        margin-top:0px;
     }
 
     span .language{
@@ -295,20 +293,20 @@ article .county_specs div span{
     section .countryDetailsContainer{
         display:grid;
         grid-template-columns: 400px 1fr;
-        gap:10px;
-        top:180px;
+        gap:20px;
+        top:220px;
+        padding:0px 60px;
     }
 
     .county_specs{
         display: grid;
-        /* grid-template-columns: repeat(2,1fr); */
         grid-template-columns: 45% 55%;
         gap:10px;
     }
 
     .country_img{
-        width:390px;
-        height:293px;
+        width:395px;
+        height:320px;
     }
 
     .county_specs .country_bloc1 p{
@@ -346,10 +344,15 @@ article .county_specs div span{
         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
     }
 
+    .country_img{
+        width:560px;
+        height:401px;
+    }
+
     .country_name{
         margin-top:10px;
         font-weight: 800;
-        font-size: 22px;
+        font-size: 32px;
         margin-bottom: 15px;
     }
 
@@ -367,8 +370,6 @@ article .county_specs div span{
         left:498px;
         top:120px;
         text-align:center;
-        /* Width:100vw;
-        height:100vh; */
         color:var(--main-country-detail-text);
         background-color:var(--main-background-color)
     }
@@ -378,28 +379,27 @@ article .county_specs div span{
     section .countryDetailsContainer{
         display:grid;
         grid-template-columns: 0.35fr 0.65fr;
-        gap:30px;
-        padding:50px;
-        top:150px;
+        gap:50px;
+        padding:80px 80px 200px 80px;
+        top:250px;
     }
 
     .county_specs{
         display: grid;
         grid-template-columns: 0.30fr 0.70fr;
-        gap:10px
+        gap:20px
     }
 
 
     .backbtn{
         position:absolute;
-        top:120px;
-        left:40px;
+        top:160px;
+        left:80px;
         z-index: 5;
-        padding:8px 10px;
         font-weight: 600;
     }
 
-    .maincontainer{
+    .mainCountryContainer{
         width: 100vw;
         height: 100vh;
          background-color: var(--main-background-color);  
@@ -419,5 +419,13 @@ article .county_specs div span{
         flex-wrap: wrap; 
     }
 
+    article .county_specs div p,
+    article .county_specs div span,
+    .country_borders h3,
+    .country_borders h3 span
+    {
+        font-size: 16px;
+        line-height: 32px;
 
+    }
 }
