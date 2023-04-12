@@ -44,7 +44,6 @@ body {
     /* overflow-x:hidden; */
 }
 
-
 .LogMessage{
     font-size: 16px;
     font-family: inherit;
@@ -141,25 +140,27 @@ color: white;
    display: flex;
    flex-direction: column;
    background-color: var(--main-background-color);
+   /* margin-bottom: 20px; */
+   /* font-size: 0px; */
 }
 
 .searchbar .search_filter{
-    width:95%;
+    width:93vw;
+    height:48px;
     background-color: var(--header-background);
     color:var(--input-search-text);
-    padding:12px 16px;
-    margin:20px auto;
+    padding:14px 16px;
+    margin:24px auto 35px auto;
     border-radius: 5px;
-
     box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
 }
 
 .isearch{
     opacity: 0.4;
     position:absolute;
-    top:118px;
-    left:25px;
-    font-size: 16px;
+    top:123px;
+    left:38px;
+    font-size: 17px;
     cursor: pointer;
     background-color: var(--header-background);
 }
@@ -173,7 +174,7 @@ color: white;
     font-size: 12px;
     font-weight: 400;
     width:100%;
-    padding:0px 10px 0px 30px;
+    padding:0px 10px 0px 55px;
 }
 
 .searchbar .search_filter input::placeholder{
@@ -181,18 +182,19 @@ color: white;
 }
 
 .searchbar .region_filter{
-    width:180px;
+    width:195px;
+    height:48px;
     background-color:var(--header-background);
     padding:12px 10px;
     border-radius:5px;
-    margin:5px 15px auto;
+    margin:5px 14px auto;
     box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
 }
 
 .select_region{
     outline:none;
     border:none;
-    width:150px;
+    width:160px;
     font-family: inherit;
     color:var(--header-main-caption);
     background-color: var(--header-background);
@@ -210,7 +212,7 @@ color: white;
 
     position:absolute;
     margin:0 auto;
-    top:215px;
+    top:235px;
     background-color: var(--main-background-color);
 }
 
