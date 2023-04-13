@@ -1,4 +1,6 @@
-
+/* body{
+    overflow-x: hidden;
+} */
 .mainCountryContainer{
     width: 100vw;
     height: 100vh;
