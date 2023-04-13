@@ -51,7 +51,7 @@ body {
     padding:50px;
     margin:0 auto;
     top:250px;
-    left:68px;
+    left:98px;
     z-index: 52;
     font-weight: 700;
     text-align: center;
@@ -66,7 +66,7 @@ body {
     text-align: center;
     font-weight: 700;
     top:250px;
-    left:100px;
+    left:160px;
     margin:0 auto;
     z-index: 50;
     padding:30px;
@@ -278,10 +278,7 @@ color: white;
         box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
     }
     .isearch{
-        opacity: 0.4;
-        position:absolute;
-
-        top:128px;
+        top:124px;
         left:40px;
         font-size: 16px;
         background-color: var(--header-background);
@@ -376,16 +373,16 @@ color: white;
     }
 
     .LoadingMessage{
-    font-size: 20px;
-    font-family: inherit;
-    text-align: center;
-    font-weight: 700;
-    top:250px;
-    left:60px;
-    margin:0 auto;
-    z-index: 50;
-    padding:30px;
-}
+        font-size: 20px;
+        font-family: inherit;
+        text-align: center;
+        font-weight: 700;
+        top:250px;
+        left:60px;
+        margin:0 auto;
+        z-index: 50;
+        padding:30px;
+    }
 }
 
 /* @media only screen and (min-width:596px) and (max-width:639px){
@@ -491,11 +488,11 @@ color: white;
         font-family: inherit;
         position: absolute;
         padding:80px;
-        left:280px;
-        top:200px;
+        left:180px;
+        top:250px;
     }
       .LoadingMessage{
-        top:180px;
+        top:300px;
         left:200px;
         font-size: 20px;
         font-family: inherit;
@@ -507,7 +504,7 @@ color: white;
 
 @media (min-width:768px){
     .LoadingMessage{
-        top:180px;
+        top:220px;
         left:250px;
         font-size: 20px;
         font-family: inherit;
@@ -522,6 +519,7 @@ color: white;
         position: absolute;
         padding:50px;
         left:250px;
+        top:240px;
     }
     
     .ErrorMsg{
