@@ -41,7 +41,7 @@ img {
 body {
     font-family: 'Nunito Sans',sans-serif;
     background-color:var(--main-background-color);
-    /* overflow-x:hidden; */
+    overflow-x:hidden;
 }
 
 .LogMessage{
@@ -387,7 +387,7 @@ color: white;
 }
 }
 
-@media only screen and (min-width:596px) and (max-width:639px){
+/* @media only screen and (min-width:596px) and (max-width:639px){
     .searchbar .region_filter{
         width:195px;
         height:48px;
@@ -405,9 +405,11 @@ color: white;
         background-color: var(--main-background-color);
     }
 
-}
+} */
 
-@media (min-width:640px){
+/* @media (min-width:640px){ */
+
+@media (min-width:596px){
     .isearch{
         top:136px;
         left:60px;
@@ -783,12 +785,12 @@ color: white;
 
     .grid{
         grid-template-columns:repeat(4,minmax(240px,500px));
-        gap:55px 50px;
+        gap:55px;
         top:220px;
         left: 0;
         right: 0;
         margin: 0 auto;
-        padding:10px 80px 30px 80px;
+        padding:10px 80px 30px;
         margin-bottom:20px;
     } 
 
@@ -855,13 +857,43 @@ color: white;
    
 }
 
+
+@media (min-width:1440px){
+
+   .grid{
+        grid-template-columns:repeat(4,minmax(240px,500px));
+        gap:75px;
+        top:220px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        padding:10px 80px 30px;
+        margin-bottom:20px;
+    } 
+}
  @media (min-width:1980px){
         .grid{
         grid-template-columns: repeat(5,minmax(240px,450px)) ; 
-        gap:75px 60px;
+        gap:75px;
         top:220px;
         margin: 0 auto;
         padding:10px 80px 30px 80px;
         margin-bottom:20px;
     } 
+
+     .LoadingMessage{
+        top:230px;
+        left:1000px;
+    } 
+
+    .LogMessage{
+        left:970px;
+        top:200px;
+    }
+    
+    .ErrorMsg{
+        left:950px;
+        z-index: 51;
+        top:280px;
+    }
 }
